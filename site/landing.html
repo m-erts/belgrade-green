@@ -1,0 +1,43 @@
+<title>Зелёный Белград</title>
+<meta name="description" content="Two small open-data studies of Belgrade's greenery: the tree network as a graph, and five ways to measure greenery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>{{COMMON_CSS}}</style>
+<style>
+.cards { display: grid; gap: 1rem; margin: 2rem 0; }
+.cards .sibling { margin: 0; max-width: none; }
+</style>
+
+<div class="bar"><div class="bar-in">
+  <div class="brand"><span lang="ru">Зелёный Белград</span><span lang="en">Belgrade Green</span></div>
+  <div class="lang" role="group" aria-label="Language" data-aria-ru="Язык" data-aria-en="Language">
+    <button type="button" id="lang-ru" data-set-lang="ru">RU</button>
+    <button type="button" id="lang-en" data-set-lang="en">EN</button>
+  </div>
+</div></div>
+
+<main>
+<header class="hero col">
+  <div class="eyebrow"><span lang="ru">Белград · открытые данные · 2026</span><span lang="en">Belgrade · open data · 2026</span></div>
+  <h1><span lang="ru">Зелёный Белград</span><span lang="en">Belgrade Green</span></h1>
+  <p class="lede"><span lang="ru">Два небольших исследования зелени Белграда на открытых данных, каждое со своей страницей.</span><span lang="en">Two small open-data studies of Belgrade's greenery, each with its own page.</span></p>
+  <div class="byline"><span><span lang="ru">Мария Эрцеговац, геоаналитик</span><span lang="en">Marija Ercegovac, geospatial analyst</span></span>
+    <a href="https://t.me/urban_mash">@urban_mash</a>
+    <a href="{{GITHUB}}"><span lang="ru">код и данные на GitHub</span><span lang="en">code and data on GitHub</span></a></div>
+  <div class="cards">
+    <a class="sibling" href="connectivity/"><span class="k"><span lang="ru">Часть 1</span><span lang="en">Part 1</span></span>
+      <span class="t"><span lang="ru">Лесной каркас Белграда как граф</span><span lang="en">Belgrade's tree network as a graph</span></span>
+      <span class="d"><span lang="ru">Какая часть городского леса работает как одна сеть, какие леса держат её как мосты и где она пережата</span><span lang="en">How much of the city's forest works as one network, which forests hold it together as bridges, and where it is squeezed</span></span></a>
+    <a class="sibling" href="measures/"><span class="k"><span lang="ru">Часть 2</span><span lang="en">Part 2</span></span>
+      <span class="t"><span lang="ru">Пять способов измерить зелень Белграда</span><span lang="en">Five ways to measure Belgrade's greenery</span></span>
+      <span class="d"><span lang="ru">Почему спутник, кроны, уличная съёмка и норматив ставят одни и те же районы на разные места, и что нормируют в разных странах</span><span lang="en">Why a satellite, a canopy map, street-level imagery and a planning norm rank the same districts differently, and what norms in different countries measure</span></span></a>
+  </div>
+</header>
+<footer class="col">
+  <span lang="ru">Мария Эрцеговац, 2026. Текст и рисунки — CC BY 4.0, код — MIT. Картографические данные © участники OpenStreetMap.</span><span lang="en">Marija Ercegovac, 2026. Text and figures CC BY 4.0, code MIT. Map data © OpenStreetMap contributors.</span>
+</footer>
+</main>
+<div class="tip" id="tip" hidden></div>
+<script>{{COMMON_JS}}</script>
+<script>BG.setTitles("Зелёный Белград", "Belgrade Green");</script>

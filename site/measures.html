@@ -1,0 +1,247 @@
+<title>Зелень Белграда пятью способами</title>
+<meta name="description" content="Five ways to measure greenery in Belgrade's ten urban districts, and what greenery norms in different countries actually measure. Open data, open code.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>{{LEAFLET_CSS}}</style>
+<style>{{COMMON_CSS}}</style>
+
+<div class="bar"><div class="bar-in">
+  <div class="brand"><span lang="ru">Зелень Белграда пятью способами</span><span lang="en">Measuring Belgrade's greenery</span></div>
+  <nav>
+    <a href="#ways"><span lang="ru">Пять способов</span><span lang="en">Five ways</span></a>
+    <a href="#ranks"><span lang="ru">Рейтинги</span><span lang="en">Rankings</span></a>
+    <a href="#street"><span lang="ru">С улицы</span><span lang="en">From the street</span></a>
+    <a href="#norms"><span lang="ru">Нормативы</span><span lang="en">Norms</span></a>
+    <a href="#method"><span lang="ru">Метод и данные</span><span lang="en">Method and data</span></a>
+  </nav>
+  <div class="lang" role="group" aria-label="Language" data-aria-ru="Язык" data-aria-en="Language">
+    <button type="button" id="lang-ru" data-set-lang="ru">RU</button>
+    <button type="button" id="lang-en" data-set-lang="en">EN</button>
+  </div>
+</div></div>
+
+<main>
+<header class="hero col">
+  <div class="eyebrow"><span lang="ru">Белград · открытые данные · 2026 · часть 2 из 2</span><span lang="en">Belgrade · open data · 2026 · part 2 of 2</span></div>
+  <h1><span lang="ru">Пять способов измерить зелень Белграда</span><span lang="en">Five ways to measure Belgrade's greenery</span></h1>
+  <p class="lede"><span lang="ru">Спутник, карта крон, уличная съёмка и норматив ставят одни и те же районы на разные места. Десять районов, шесть рейтингов и что на самом деле нормируют в разных странах.</span><span lang="en">A satellite, a canopy map, street-level imagery and a planning norm rank the same districts differently. Ten districts, six rankings, and what greenery norms in different countries actually measure.</span></p>
+  <div class="byline"><span><span lang="ru">Мария Эрцеговац, геоаналитик</span><span lang="en">Marija Ercegovac, geospatial analyst</span></span>
+    <a href="https://t.me/urban_mash">@urban_mash</a>
+    <a href="{{GITHUB}}"><span lang="ru">код и данные на GitHub</span><span lang="en">code and data on GitHub</span></a></div>
+  <a class="sibling" href="{{OTHER}}"{{OTHER_TARGET}}><span class="k"><span lang="ru">Часть 1 →</span><span lang="en">Part 1 →</span></span>
+    <span class="t"><span lang="ru">Лесной каркас Белграда как граф</span><span lang="en">Belgrade's tree network as a graph</span></span>
+    <span class="d"><span lang="ru">Какая часть городского леса работает как одна сеть и где она пережата</span><span lang="en">How much of the city's forest works as one network, and where it is squeezed</span></span></a>
+</header>
+
+<section class="part" id="ways">
+  <div class="col">
+    <div class="part-num">01</div>
+    <h2><span lang="ru">Пять способов и что каждый видит</span><span lang="en">Five ways, and what each one sees</span></h2>
+    <p><span lang="ru">Десять городских районов Белграда: часть насеља «Београд» в каждой городской общине, население по переписи 2022. Шестая строка — не способ измерить зелень, а способ узнать, кому она достаётся.</span><span lang="en">Ten urban districts of Belgrade: the part of the settlement Beograd in each urban municipality, with Census 2022 population. The sixth row is not a way to measure greenery but a way to see who gets it.</span></p>
+    <div class="tablewrap"><table class="ways">
+      <thead><tr><th><span lang="ru">Способ</span><span lang="en">Measure</span></th><th><span lang="ru">Что видит</span><span lang="en">What it sees</span></th><th><span lang="ru">Белград</span><span lang="en">Belgrade</span></th></tr></thead>
+      <tbody>
+        <tr><td><span lang="ru">NDVI, Sentinel-2, 10 м</span><span lang="en">NDVI, Sentinel-2, 10 m</span></td><td><span lang="ru">любую растительность: газон, пашню, лес</span><span lang="en">any vegetation: lawn, cropland, forest</span></td><td><span lang="ru">0,49</span><span lang="en">0.49</span></td></tr>
+        <tr><td><span lang="ru">Деревья, ESA WorldCover, 10 м</span><span lang="en">Trees, ESA WorldCover, 10 m</span></td><td><span lang="ru">массивы деревьев, но не уличные деревья</span><span lang="en">stands of trees, but not street trees</span></td><td><span lang="ru">34% суши</span><span lang="en">34% of land</span></td></tr>
+        <tr><td><span lang="ru">Кроны выше 3 м, Meta/WRI, ~1 м</span><span lang="en">Canopy above 3 m, Meta/WRI, ~1 m</span></td><td><span lang="ru">отдельные деревья, включая уличные</span><span lang="en">single trees, street trees included</span></td><td>22%</td></tr>
+        <tr><td><span lang="ru">Green View Index, Mapillary</span><span lang="en">Green View Index, Mapillary</span></td><td><span lang="ru">долю растительности в кадре с улицы</span><span lang="en">the share of vegetation in a street-level photo</span></td><td>20%</td></tr>
+        <tr><td><span lang="ru">м² общественной зелени на жителя</span><span lang="en">Public green per resident</span></td><td><span lang="ru">площадь парков и лесов общего пользования из OSM, а не сами деревья</span><span lang="en">the area of public parks and forests from OSM, not the trees themselves</span></td><td><span lang="ru">46 м²</span><span lang="en">46 m²</span></td></tr>
+        <tr><td><span lang="ru">Доступность</span><span lang="en">Access</span></td><td><span lang="ru">общественную зелень (парк, лес) от 1 га в 300 м от дома</span><span lang="en">a public green area (park or forest) of at least 1 ha within 300 m of home</span></td><td><span lang="ru">48% жителей</span><span lang="en">48% of residents</span></td></tr>
+      </tbody></table></div>
+    <div class="statement">
+      <div class="stat"><div class="v"><span lang="ru">2,2</span><span lang="en">2.2</span> <small><span lang="ru">м²</span><span lang="en">m²</span></small></div><div class="l"><span lang="ru">общественной зелени на жителя Врачара: последнее место</span><span lang="en">of public green per resident in Vračar: last place</span></div></div>
+      <div class="stat"><div class="v"><span lang="ru">5-е</span><span lang="en">5th</span> <small><span lang="ru">из 10</span><span lang="en">of 10</span></small></div><div class="l"><span lang="ru">место Врачара по зелени, которую видно с улицы</span><span lang="en">is Vračar's rank by greenery seen from the street</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="part" id="ranks">
+  <div class="col">
+    <div class="part-num">02</div>
+    <h2><span lang="ru">Одни и те же районы, шесть рейтингов</span><span lang="en">Same districts, six rankings</span></h2>
+    <p class="caption"><span lang="ru">Наведите или нажмите на район, чтобы выделить его линию. 1 — самый зелёный.</span><span lang="en">Hover or tap a district to highlight its line. 1 is the greenest.</span></p>
+    <div class="chart" id="bump"></div>
+    <div class="tablewrap"><table id="units-table" aria-label="Measures by district" data-aria-ru="Шесть метрик по районам" data-aria-en="Measures by district"></table></div>
+    <p class="caption"><span lang="ru">Нажмите на заголовок столбца, чтобы отсортировать. Мелкая цифра — место района.</span><span lang="en">Click a column header to sort. The small figure is the district's rank.</span></p>
+    <ol class="findings">
+      <li><div><span lang="ru"><b>Врачар</b> последний по NDVI, по WorldCover и по м² на жителя, но седьмой по кронам и пятый с улицы: уличные деревья не видны 10-метровому пикселю и не попадают в норматив.</span><span lang="en"><b>Vračar</b> is last by NDVI, by WorldCover and by m² per resident, but 7th by canopy and 5th from the street: its street trees are invisible to a 10 m pixel and to the norm.</span></div></li>
+      <li><div><span lang="ru"><b>Палилула</b> вторая по NDVI и третья по м² на жителя, но восьмая с улицы и по доступности зелени.</span><span lang="en"><b>Palilula</b> is 2nd by NDVI and 3rd by m² per resident, but 8th from the street and by access to green space.</span></div></li>
+      <li><div><span lang="ru"><b>Стари-Град</b> девятый по NDVI и с улицы, но третий по доступности: у 70% жителей в 300 м есть общественная зелень от 1 га.</span><span lang="en"><b>Stari grad</b> is 9th by NDVI and from the street, but 3rd by access: 70% of residents live within 300 m of a public green area of at least 1 ha.</span></div></li>
+      <li><div><span lang="ru"><b>Чукарица</b> вторая по м² на жителя (88), но у 45% её жителей в 300 м нет общественной зелени от 1 га.</span><span lang="en"><b>Čukarica</b> is 2nd by m² per resident (88), yet 45% of its residents have no public green area of at least 1 ha within 300 m.</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="part" id="street">
+  <div class="col">
+    <div class="part-num">03</div>
+    <h2><span lang="ru">Спутник и улица видят разное</span><span lang="en">The satellite and the street see different things</span></h2>
+    <p><span lang="ru">Green View Index — доля растительности в кадре. Для каждой ячейки 100 м взят последний летний снимок Mapillary, всего 8 450 снимков.</span><span lang="en">The Green View Index is the share of vegetation in a photo. Each 100 m cell uses its newest summer Mapillary image, 8,450 images in total.</span></p>
+  </div>
+  <div class="mapbox wide">
+    <div class="map" id="map-gvi" role="img" aria-label="Map of street-level Green View Index in Belgrade" data-aria-ru="Карта уличного Green View Index в Белграде" data-aria-en="Map of street-level Green View Index in Belgrade"></div>
+    <div class="map-legend">
+      <span>GVI<i class="ramp" id="gvi-ramp"></i><span class="caption">0 — ≥ 60%</span></span>
+      <span class="caption"><span lang="ru">Точка — ячейка 100 м, последний летний снимок. Нажмите на точку, чтобы открыть снимок на Mapillary</span><span lang="en">Each dot is a 100 m cell with its newest summer image. Click a dot to open the image on Mapillary</span></span>
+    </div>
+  </div>
+  <div class="col">
+    <ol class="findings">
+      <li><div><span lang="ru"><b>Сверху и с улицы — разная зелень.</b> По шестиугольникам около 0,7 км² NDVI и GVI почти не связаны: ранговая корреляция 0,23.</span><span lang="en"><b>From above and from the street the greenery differs.</b> Per hexagon of about 0.7 km², NDVI and GVI barely correlate: Spearman 0.23.</span></div></li>
+      <li><div><span lang="ru"><b>Лучший заменитель уличного взгляда — кроны 1 м</b> (0,81 по районам). Хуже всех NDVI (0,39). Районов всего десять, так что это ориентир, а не закон.</span><span lang="en"><b>The best stand-in for the street view is 1 m canopy</b> (0.81 across districts). NDVI is the worst (0.39). With only ten districts, treat this as a pointer, not a law.</span></div></li>
+      <li><div><span lang="ru"><b>Новый Белград</b> последний с улицы и в хвосте почти всех остальных рейтингов.</span><span lang="en"><b>Novi Beograd</b> is last from the street and near the bottom of almost every other ranking.</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="part" id="norms">
+  <div class="col">
+    <div class="part-num">04</div>
+    <h2><span lang="ru">Что нормируют, когда нормируют зелень</span><span lang="en">What greenery norms actually measure</span></h2>
+    <div class="norms">
+      <div class="norm"><h4><span lang="ru">Площадь на жителя</span><span lang="en">Area per resident</span></h4><ul>
+        <li><span lang="ru">Россия, СП 42.13330.2026: не менее 10 м² озеленённых территорий общего пользования в городах</span><span lang="en">Russia, SP 42.13330.2026: at least 10 m² of public green space per resident in towns</span></li>
+        <li><span lang="ru">Берлин: 6 м² «у дома» (парк ≥ 0,5 га в 500 м) + 7 м² «у района» (парк &gt; 10 га в 1–1,5 км)</span><span lang="en">Berlin: 6 m² near home (park ≥ 0.5 ha within 500 m) + 7 m² near the district (park &gt; 10 ha within 1–1.5 km)</span></li>
+        <li><span lang="ru">Сингапур: 0,8 га парков на 1000 жителей</span><span lang="en">Singapore: 0.8 ha of park per 1,000 residents</span></li></ul></div>
+      <div class="norm"><h4><span lang="ru">Доля территории</span><span lang="en">Share of land</span></h4><ul>
+        <li><span lang="ru">Россия, СП 42.13330.2016: не менее 25% площади квартала; в СП 2026 это отдано правилам застройки</span><span lang="en">Russia, SP 42.13330.2016: at least 25% of a residential block; the 2026 code leaves it to zoning rules</span></li>
+        <li><span lang="ru">Белград, план системы зелени 2019: 10–40% участка, озеленённого прямо на грунте</span><span lang="en">Belgrade green-system plan 2019: 10–40% of a plot green on natural soil</span></li>
+        <li><span lang="ru">Англия, Natural England 2023: не менее 40% зелёного покрова в жилых районах</span><span lang="en">England, Natural England 2023: at least 40% green cover in residential neighbourhoods</span></li></ul></div>
+      <div class="norm"><h4><span lang="ru">Доступность</span><span lang="en">Access</span></h4><ul>
+        <li><span lang="ru">ВОЗ, Европейское бюро, 2017: 0,5–1 га общественной зелени в 300 м по прямой, «эмпирическое правило»</span><span lang="en">WHO Europe 2017: 0.5–1 ha of public green space within 300 m in a straight line, a rule of thumb</span></li>
+        <li><span lang="ru">Англия, 2023: 2 га в 300 м, 10 га в 1 км, 100 га в 5 км, 500 га в 10 км</span><span lang="en">England 2023: 2 ha within 300 m, 10 ha within 1 km, 100 ha within 5 km, 500 ha within 10 km</span></li>
+        <li><span lang="ru">Белград, 2019: 7, 10 или 23 м² общественной зелени и леса на жителя квартала в радиусе 300 м по прямой</span><span lang="en">Belgrade 2019: 7, 10 or 23 m² of public green and forest per block resident within 300 m in a straight line</span></li></ul></div>
+      <div class="norm"><h4><span lang="ru">Кроны</span><span lang="en">Canopy</span></h4><ul>
+        <li><span lang="ru">ЕС, регламент 2024/1991: без чистых потерь зелени и крон к 2030 году относительно 2024-го, затем рост</span><span lang="en">EU Regulation 2024/1991: no net loss of urban green space and canopy by 2030 against 2024, then an increase</span></li>
+        <li><span lang="ru">Мельбурн: 40% к 2040 (публичные территории); Барселона: 30% к 2037; Торонто: 40% к 2050</span><span lang="en">Melbourne: 40% by 2040 (public land); Barcelona: 30% by 2037; Toronto: 40% by 2050</span></li></ul></div>
+      <div class="norm"><h4><span lang="ru">Видимость</span><span lang="en">Visibility</span></h4><ul>
+        <li><span lang="ru">3-30-300 (Konijnendijk): три дерева видно из дома, школы и офиса, 30% крон в квартале, парк в 300 м</span><span lang="en">3-30-300 (Konijnendijk): three trees visible from every home, school and office, 30% canopy per neighbourhood, a park within 300 m</span></li></ul></div>
+    </div>
+    <p class="callout"><span lang="ru">Нормы «9 м² зелени на жителя от ВОЗ», которую цитируют сербские СМИ, нет ни в одном найденном документе ВОЗ. В 2012 году ВОЗ предлагала «м² на жителя» только как индикатор, без значения, а в 2025 году журнал Frontiers поправкой убрал этот «стандарт» из статьи. 9 м² на жителя есть в итальянском декрете 1968 года, но связь мифа с ним не доказана.</span><span lang="en">The "WHO norm of 9 m² of green space per person" that Serbian media quote is not in any WHO document I could find. In 2012 WHO proposed m² per person only as an indicator, with no target, and in 2025 the journal Frontiers removed this "standard" from a paper in a correction. An Italian decree of 1968 does set 9 m² per resident, but no link between it and the myth has been shown.</span></p>
+  </div>
+</section>
+
+<section class="part" id="method">
+  <div class="col">
+    <div class="part-num">05</div>
+    <h2><span lang="ru">Метод и данные</span><span lang="en">Method and data</span></h2>
+    <div class="meta-grid">
+      <div><h4><span lang="ru">Спутник и кроны</span><span lang="en">Satellite and canopy</span></h4><p><span lang="ru">NDVI — медиана 18 летних сцен Sentinel-2 L2A (июнь–август 2025). Кроны — доля площади, где карта Meta/WRI видит деревья выше 3 м.</span><span lang="en">NDVI is the median of 18 summer Sentinel-2 L2A scenes (June–August 2025). Canopy is the share of area where the Meta/WRI map sees trees above 3 m.</span></p></div>
+      <div><h4>Green View Index</h4><p><span lang="ru">Доля пикселей класса Vegetation по модели Mask2Former (Mapillary Vistas), как в Global Streetscapes; сверка с их GVI на 300 снимках: r = 0,999. Только обычные, не панорамные снимки, май–сентябрь, с 2019 года.</span><span lang="en">The share of Vegetation pixels from Mask2Former (Mapillary Vistas), as in Global Streetscapes; checked against their GVI on 300 images: r = 0.999. Regular, non-panoramic images only, May–September, 2019 or later.</span></p></div>
+      <div><h4><span lang="ru">Жители и зелень</span><span lang="en">Residents and green space</span></h4><p><span lang="ru">Население — GHS-POP 100 м, откалиброванный по переписи 2022 в каждом районе. Общественная зелень — парки, сады, охраняемые природные территории, леса и зоны отдыха из OSM, кроме частных, без воды. Доступность — доля жителей, у которых в 300 м по прямой есть участок такой зелени от 1 га; соседние участки сливаются.</span><span lang="en">Population is GHS-POP at 100 m, calibrated to the 2022 Census in each district. Public green is parks, gardens, nature reserves, forests and recreation grounds from OSM that are not private, water excluded. Access is the share of residents with at least 1 ha of such green within 300 m in a straight line; adjacent areas are merged.</span></p></div>
+      <div><h4><span lang="ru">Данные</span><span lang="en">Data</span></h4><ul>
+        <li>Copernicus Sentinel-2, 2025</li><li>ESA WorldCover 2021 (CC BY 4.0)</li>
+        <li>Meta &amp; WRI Canopy Height (CC BY 4.0)</li><li>Mapillary (CC BY-SA 4.0)</li>
+        <li>OpenStreetMap (ODbL)</li><li>GHS-POP R2023A (CC BY 4.0), <span lang="ru">перепись РЗС 2022</span><span lang="en">RZS Census 2022</span></li></ul></div>
+      <div><h4><span lang="ru">Ограничения</span><span lang="en">Limitations</span></h4><p><span lang="ru">Снимки для карты крон Meta — 2018–2019 годов, часть зимние. Общественная зелень по OSM — замена официального реестра. GVI смотрит в одну сторону, а не во все. Доступность считается по прямой, а не по улицам.</span><span lang="en">The Meta canopy imagery is from 2018–2019, partly leaf-off. OSM public green stands in for the official register. GVI looks in one direction, not all around. Access is straight-line, not along streets.</span></p></div>
+    </div>
+    <p><a href="{{GITHUB}}"><span lang="ru">Код, методика и все цифры на GitHub</span><span lang="en">Code, methodology and every number on GitHub</span></a></p>
+  </div>
+</section>
+
+<footer class="col">
+  <a class="sibling" href="{{OTHER}}"{{OTHER_TARGET}} style="margin:0 0 1.5rem"><span class="k"><span lang="ru">Часть 1 →</span><span lang="en">Part 1 →</span></span>
+    <span class="t"><span lang="ru">Лесной каркас Белграда как граф</span><span lang="en">Belgrade's tree network as a graph</span></span></a>
+  <span lang="ru">Мария Эрцеговац, 2026. Текст и рисунки — CC BY 4.0, код — MIT. Картографические данные © участники OpenStreetMap.</span><span lang="en">Marija Ercegovac, 2026. Text and figures CC BY 4.0, code MIT. Map data © OpenStreetMap contributors.</span>
+</footer>
+</main>
+<div class="tip" id="tip" hidden></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>{{COMMON_JS}}</script>
+<script>
+(function () {
+  const { T, fmt, css, onTheme, getJSON, baseMap, mapError, loadError, showTip, hideTip } = BG;
+  BG.setTitles("Зелень Белграда пятью способами", "Measuring Belgrade's Greenery");
+  const DATA = "{{BASE}}data/";
+
+  /* GVI map */
+  Promise.all(["water.geojson", "roads.geojson", "units.geojson", "gvi.json"].map(f => getJSON(DATA + f)))
+    .then(([water, roads, units, g]) => baseMap("map-gvi", { water, roads, units }, map => {
+      const ramp = () => ["--g1", "--g2", "--g3", "--g4", "--g5", "--g6"].map(css);
+      const colorOf = v => { const r = ramp(); const t = Math.max(0, Math.min(0.9999, v / 0.6)); return r[Math.floor(t * r.length)]; };
+      const rows = g.rows.slice().sort((a, b) => a[2] - b[2]);
+      const renderer = L.canvas({ padding: 0.3 });
+      const dots = rows.map(r => L.circleMarker([r[1], r[0]], { renderer, radius: 2.6, stroke: false, fillOpacity: 1, fillColor: colorOf(r[2]) })
+        .bindTooltip(() => `<b>GVI ${fmt(100 * r[2])}%</b><br>${r[4]}<br><span class="caption">${T("нажмите, чтобы открыть снимок", "click to open the image")}</span>`,
+          { className: "gtip", direction: "top", offset: [0, -4] })
+        .on("click", () => window.open(`https://www.mapillary.com/app/?pKey=${r[3]}`, "_blank", "noopener")).addTo(map));
+      const rampEl = document.getElementById("gvi-ramp");
+      function restyle() { const r = ramp(); rampEl.style.background = `linear-gradient(90deg, ${r.join(",")})`;
+        dots.forEach((d, i) => d.setStyle({ fillColor: colorOf(rows[i][2]) })); }
+      restyle(); onTheme(restyle);
+      map.attributionControl.addAttribution("Mapillary (CC BY-SA 4.0)");
+    }))
+    .catch(() => mapError("map-gvi"));
+
+  /* bump chart + table */
+  getJSON(DATA + "units.json").then(units => {
+    const NAMES = { "Čukarica": ["Чукарица", "Čukarica"], "Novi Beograd": ["Новый Белград", "Novi Beograd"], "Palilula": ["Палилула", "Palilula"],
+      "Rakovica": ["Раковица", "Rakovica"], "Savski venac": ["Савски-Венац", "Savski venac"], "Stari grad": ["Стари-Град", "Stari grad"],
+      "Voždovac": ["Вождовац", "Voždovac"], "Vračar": ["Врачар", "Vračar"], "Zemun": ["Земун", "Zemun"], "Zvezdara": ["Звездара", "Zvezdara"] };
+    const li = () => (BG.lang === "ru" ? 0 : 1);
+    const nm = u => NAMES[u][li()];
+    const M = [["ndvi_mean", ["NDVI", "NDVI"], v => fmt(v, 2)], ["tree_cover_wc_pct", ["Деревья, 10 м", "Trees, 10 m"], v => fmt(v) + "%"],
+      ["canopy3_meta_pct", ["Кроны, 1 м", "Canopy, 1 m"], v => fmt(v) + "%"], ["gvi_mean", ["GVI с улицы", "Street GVI"], v => fmt(100 * v) + "%"],
+      ["green_m2_per_person", ["м² на жителя", "m² per resident"], v => fmt(v, v < 10 ? 1 : 0)], ["within300_1ha_pct", ["Зелень ≥1 га в 300 м", "Green ≥1 ha ≤300 m"], v => fmt(v) + "%"]];
+    const rank = {};
+    M.forEach(([k]) => { const s = units.slice().sort((a, b) => b[k] - a[k]); s.forEach((u, i) => { rank[u.unit + k] = i + 1; }); });
+    const HL = { "Vračar": "--blue", "Palilula": "--accent", "Stari grad": "--aqua" };
+    let focus = null;
+    const el = document.getElementById("bump");
+    function draw() {
+      const W = Math.max(340, Math.min(720, el.clientWidth || 640)), narrow = W < 500;
+      const H = narrow ? 380 : 420, m = { l: narrow ? 86 : 112, r: narrow ? 86 : 112, t: 40, b: 12 };
+      const xs = i => m.l + (W - m.l - m.r) * i / (M.length - 1), ys = r => m.t + (H - m.t - m.b) * (r - 1) / 9;
+      let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${T("Места районов в шести рейтингах", "District ranks in six rankings")}">`;
+      M.forEach(([, lab], i) => { s += `<line x1="${xs(i)}" x2="${xs(i)}" y1="${m.t - 6}" y2="${H - m.b}" stroke="${css("--rule")}"/>`;
+        const words = lab[li()].split(/,\s|\s(?=\d)|\s/);
+        const line1 = narrow ? words[0] : lab[li()];
+        s += `<text x="${xs(i)}" y="${narrow ? 12 : 16}" font-size="${narrow ? 10 : 11}" text-anchor="middle">${line1}</text>`;
+        if (narrow && words.length > 1) s += `<text x="${xs(i)}" y="24" font-size="10" text-anchor="middle">${words.slice(1).join(" ")}</text>`; });
+      const order = units.map(u => u.unit).sort((a, b) => (a === focus) - (b === focus) || (a in HL) - (b in HL));
+      order.forEach(u => {
+        const on = focus ? u === focus : u in HL;
+        const col = on ? css(HL[u] || "--fg") : css("--grey-mark");
+        const pts = M.map(([k], i) => [xs(i), ys(rank[u + k])]);
+        s += `<polyline points="${pts.map(p => p.join(",")).join(" ")}" fill="none" stroke="${col}" stroke-width="${on ? 2.5 : 1.3}" stroke-linejoin="round" data-u="${u}" style="cursor:pointer"/>`;
+        pts.forEach(([x, y], i) => { s += `<circle cx="${x}" cy="${y}" r="${on ? 4.5 : 3}" fill="${col}" stroke="${css("--bg")}" stroke-width="1.5" data-u="${u}" data-k="${M[i][0]}" style="cursor:pointer"/>`; });
+        s += `<text x="${m.l - 10}" y="${pts[0][1] + 4}" font-size="11.5" text-anchor="end" fill="${on ? css("--fg") : css("--fg-2")}" font-weight="${on ? 600 : 400}" data-u="${u}" style="cursor:pointer">${nm(u)}</text>`;
+        s += `<text x="${W - m.r + 10}" y="${pts[pts.length - 1][1] + 4}" font-size="11.5" fill="${on ? css("--fg") : css("--fg-2")}" font-weight="${on ? 600 : 400}" data-u="${u}" style="cursor:pointer">${nm(u)}</text>`;
+      });
+      el.innerHTML = s + "</svg>";
+      el.querySelectorAll("[data-u]").forEach(n => {
+        n.addEventListener("pointerenter", () => { if (focus !== n.dataset.u) { focus = n.dataset.u; draw(); } });
+        n.addEventListener("click", () => { focus = n.dataset.u; draw(); });
+        if (n.dataset.k) n.addEventListener("pointermove", ev => {
+          const u = units.find(x => x.unit === n.dataset.u), mm = M.find(x => x[0] === n.dataset.k);
+          showTip(`<b>${nm(u.unit)}</b><br>${mm[1][li()]}: ${mm[2](u[mm[0]])} · ${rank[u.unit + mm[0]]}/10`, ev.clientX, ev.clientY); });
+        if (n.dataset.k) n.addEventListener("pointerleave", hideTip);
+      });
+      el.querySelector("svg").addEventListener("pointerleave", () => { if (focus) { focus = null; draw(); } });
+    }
+    draw(); onTheme(draw); window.addEventListener("resize", draw);
+
+    const tbl = document.getElementById("units-table");
+    let sortKey = "pop_2022", asc = false;
+    function table() {
+      const rows = units.slice().sort((a, b) => {
+        const c = sortKey === "unit" ? nm(a.unit).localeCompare(nm(b.unit), BG.lang === "ru" ? "ru" : "sr-Latn")
+          : (a[sortKey] > b[sortKey]) - (a[sortKey] < b[sortKey]);
+        return (asc ? 1 : -1) * c; });
+      let h = `<thead><tr><th tabindex="0" data-k="unit"${sortKey === "unit" ? ` aria-sort="${asc ? "ascending" : "descending"}"` : ""}>${T("Район", "District")}</th><th tabindex="0" data-k="pop_2022"${sortKey === "pop_2022" ? ` aria-sort="${asc ? "ascending" : "descending"}"` : ""}>${T("Жителей", "Residents")}</th>`;
+      M.forEach(([k, lab]) => { h += `<th tabindex="0" data-k="${k}"${sortKey === k ? ` aria-sort="${asc ? "ascending" : "descending"}"` : ""}>${lab[li()]}</th>`; });
+      h += "</tr></thead><tbody>";
+      rows.forEach(u => { h += `<tr><td>${nm(u.unit)}</td><td>${fmt(u.pop_2022)}</td>`;
+        M.forEach(([k, , f]) => { const r = rank[u.unit + k]; h += `<td class="${r === 1 ? "best" : ""}">${f(u[k])}<span class="rk">${r}</span></td>`; });
+        h += "</tr>"; });
+      tbl.innerHTML = h + "</tbody>";
+      tbl.querySelectorAll("th").forEach(th => { const go = () => { const k = th.dataset.k; asc = sortKey === k ? !asc : k === "unit"; sortKey = k; table();
+          tbl.querySelector(`th[data-k="${k}"]`).focus(); };
+        th.addEventListener("click", go); th.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } }); });
+    }
+    table(); window.addEventListener("bg-lang", table);
+  }).catch(() => loadError("bump"));
+})();
+</script>

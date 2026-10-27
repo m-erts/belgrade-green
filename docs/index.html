@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Зелёный Белград</title>
+<meta name="description" content="Two small open-data studies of Belgrade's greenery: the tree network as a graph, and five ways to measure greenery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>/* Layout: one reading column (~68ch) with full-bleed map panels; a sticky bar carries the language switch. */
+:root {
+  --bg: #fbfcfa; --surface: #f1f4ef; --fg: #131713; --fg-2: #4d554c; --muted: #7d857c; --rule: #dbe1d8;
+  --accent: #e2602b; --blue: #2a78d6; --aqua: #1baf7a;
+  --patch: #9ccb88; --patch-2: #5f9e50; --water: #dde7ee; --road: #d3d7cf; --unit: #a9b0a6;
+  --grey-mark: #c6cbc2;
+  --g1: #b2d6a1; --g2: #8cc178; --g3: #63a752; --g4: #3f8a36; --g5: #246c24; --g6: #124d17;
+  --sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --step--1: 0.8125rem; --step-0: 1rem; --step-1: 1.1875rem; --step-2: 1.5rem; --step-3: 2.125rem; --step-4: 3rem;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111411; --surface: #191d19; --fg: #edf1ea; --fg-2: #b6beb3; --muted: #858d83; --rule: #2a312a;
+  --accent: #f0814f; --blue: #4a93ea; --aqua: #22b884;
+  --patch: #4c7f42; --patch-2: #78b766; --water: #1d2a33; --road: #333a33; --unit: #5d665b; --grey-mark: #3f463e;
+  --g1: #2f5a2a; --g2: #3f7a37; --g3: #569d49; --g4: #78b766; --g5: #9fd08b; --g6: #c8e8b8;
+  color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #111411; --surface: #191d19; --fg: #edf1ea; --fg-2: #b6beb3; --muted: #858d83; --rule: #2a312a;
+  --accent: #f0814f; --blue: #4a93ea; --aqua: #22b884;
+  --patch: #4c7f42; --patch-2: #78b766; --water: #1d2a33; --road: #333a33; --unit: #5d665b; --grey-mark: #3f463e;
+  --g1: #2f5a2a; --g2: #3f7a37; --g3: #569d49; --g4: #78b766; --g5: #9fd08b; --g6: #c8e8b8;
+  color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: var(--step-0); line-height: 1.55;
+  -webkit-font-smoothing: antialiased; }
+html[data-lang="ru"] [lang="en"], html[data-lang="en"] [lang="ru"] { display: none !important; }
+a { color: inherit; text-decoration-color: var(--muted); text-underline-offset: 0.2em; }
+a:hover { text-decoration-color: var(--fg); }
+a:focus-visible, button:focus-visible, th:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 3000; background: var(--bg);
+  border-bottom: 1px solid var(--rule); }
+.bar-in { max-width: 72rem; margin: 0 auto; padding: 0.6rem 16px; display: flex; gap: 1rem; align-items: center;
+  justify-content: space-between; flex-wrap: wrap; }
+.bar nav { display: flex; gap: 1.1rem; flex-wrap: wrap; font-size: var(--step--1); color: var(--fg-2); }
+.bar nav a { text-decoration: none; }
+.brand { font-weight: 600; letter-spacing: -0.01em; }
+.lang { display: inline-flex; border: 1px solid var(--rule); }
+.lang button { font: inherit; font-size: var(--step--1); background: transparent; color: var(--fg-2); border: 0;
+  padding: 0.25rem 0.6rem; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+main { padding-inline: 16px; }
+.col { max-width: 44rem; margin: 0 auto; }
+.wide { max-width: 72rem; margin: 0 auto; }
+header.hero { padding-block: 3.5rem 1.5rem; }
+.eyebrow { font-family: var(--mono); font-size: var(--step--1); color: var(--muted); letter-spacing: 0.04em;
+  text-transform: uppercase; }
+h1 { font-size: clamp(2rem, 1.2rem + 3.2vw, var(--step-4)); line-height: 1.08; letter-spacing: -0.025em;
+  font-weight: 600; margin: 0.6rem 0 1rem; text-wrap: balance; }
+h2 { font-size: var(--step-3); line-height: 1.15; letter-spacing: -0.02em; font-weight: 600; margin: 0 0 0.75rem;
+  text-wrap: balance; }
+h3 { font-size: var(--step-1); font-weight: 600; margin: 2rem 0 0.5rem; text-wrap: balance; }
+p { margin: 0 0 1rem; }
+.lede { font-size: var(--step-1); color: var(--fg-2); max-width: 40rem; }
+.byline { font-size: var(--step--1); color: var(--muted); display: flex; gap: 0.9rem; flex-wrap: wrap; }
+section.part { padding-block: 3rem 1rem; border-top: 1px solid var(--rule); }
+.part-num { font-family: var(--mono); color: var(--accent); font-size: var(--step--1); letter-spacing: 0.04em; }
+.statement { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 1.25rem 2rem;
+  margin: 1.75rem 0 1.5rem; }
+.stat .v { font-size: var(--step-3); font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
+.stat .v small { font-size: var(--step-1); font-weight: 500; color: var(--fg-2); }
+.stat .l { font-size: var(--step--1); color: var(--fg-2); margin-top: 0.25rem; }
+.mapbox { position: relative; margin: 1.5rem auto; max-width: 72rem; }
+.map { height: min(78vh, 46rem); background: var(--surface); border: 1px solid var(--rule); }
+.map-legend { display: flex; gap: 0.6rem 1.4rem; flex-wrap: wrap; font-size: var(--step--1); color: var(--fg-2);
+  margin-top: 0.6rem; align-items: center; }
+.sw { display: inline-block; width: 0.85rem; height: 0.85rem; vertical-align: -0.1rem; margin-right: 0.35rem; }
+.sw.diamond { transform: rotate(45deg) scale(0.75); }
+.ramp { display: inline-block; width: 8rem; height: 0.6rem; vertical-align: 0; margin: 0 0.4rem; }
+.caption { font-size: var(--step--1); color: var(--muted); }
+ol.findings { list-style: none; counter-reset: f; padding: 0; margin: 1.5rem 0; display: grid; gap: 1.1rem; }
+ol.findings li { counter-increment: f; display: grid; grid-template-columns: 2rem 1fr; gap: 0.5rem; }
+ol.findings li::before { content: counter(f); font-family: var(--mono); color: var(--muted); font-size: var(--step--1);
+  padding-top: 0.2rem; }
+ol.findings b { font-weight: 600; }
+.chart { margin: 1.5rem 0; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart text { font-family: var(--sans); }
+.chart text:not([fill]) { fill: var(--fg-2); }
+.chart .maperr { min-height: 6rem; }
+.tip { position: absolute; pointer-events: none; z-index: 3500; background: var(--bg); color: var(--fg); border: 1px solid var(--rule);
+  font-size: var(--step--1); padding: 0.4rem 0.55rem; line-height: 1.4; max-width: 18rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+.tip[hidden] { display: none; }
+.tablewrap { overflow-x: auto; margin: 1.5rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: var(--step--1); font-variant-numeric: tabular-nums; }
+th, td { text-align: right; padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+th { font-weight: 500; color: var(--fg-2); cursor: pointer; user-select: none; vertical-align: bottom; }
+th[aria-sort] { color: var(--fg); }
+td .rk { color: var(--muted); font-family: var(--mono); margin-left: 0.35rem; font-size: 0.75rem; }
+td.best { font-weight: 600; }
+.ruler { margin: 1.25rem 0 1.75rem; }
+.ruler svg { width: 100%; height: auto; display: block; }
+.norms { display: grid; gap: 1.1rem; margin: 1.25rem 0; }
+.norm h4 { margin: 0 0 0.3rem; font-size: var(--step-0); font-weight: 600; }
+.norm ul { margin: 0; padding-left: 1.1rem; color: var(--fg-2); }
+.norm li { margin: 0.15rem 0; }
+.figure { margin: 1.5rem 0; }
+.figure img { display: block; width: 100%; max-width: 34rem; border: 1px solid var(--rule); }
+.callout { border-left: 2px solid var(--accent); padding: 0.2rem 0 0.2rem 1rem; margin: 1.5rem 0; color: var(--fg-2); }
+.meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1.5rem; margin: 1.5rem 0; }
+.meta-grid div { min-width: 0; }
+.meta-grid h4 { margin: 0 0 0.4rem; font-size: var(--step--1); font-family: var(--mono); color: var(--muted);
+  font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; }
+.meta-grid p, .meta-grid ul { font-size: var(--step--1); color: var(--fg-2); margin: 0; }
+.meta-grid ul { padding-left: 1rem; }
+footer { border-top: 1px solid var(--rule); margin-top: 3rem; padding-block: 2rem 3rem; font-size: var(--step--1);
+  color: var(--muted); }
+.leaflet-container { background: var(--surface); font-family: var(--sans); }
+.leaflet-tooltip.gtip { white-space: normal; width: max-content; max-width: min(18rem, calc(100vw - 48px));
+  background: var(--bg); color: var(--fg); border: 1px solid var(--rule); border-radius: 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08); font-size: var(--step--1); line-height: 1.4; padding: 0.35rem 0.5rem; }
+.leaflet-tooltip.gtip::before { display: none; }
+@media (max-width: 36rem) { .maplabel { display: none; } }
+.maplabel { font-size: 0.72rem; font-weight: 500; color: var(--fg); white-space: nowrap; text-shadow: 0 0 3px var(--bg),
+  0 0 3px var(--bg), 0 0 3px var(--bg); pointer-events: none; }
+.diamond-ic { width: 12px; height: 12px; background: var(--fg); transform: rotate(45deg); outline: 2px solid var(--bg); }
+.leaflet-control-zoom a { background: var(--bg) !important; color: var(--fg) !important; border-color: var(--rule) !important; }
+.leaflet-control-attribution { background: color-mix(in srgb, var(--bg) 85%, transparent) !important; color: var(--muted) !important; }
+.leaflet-control-attribution a { color: var(--fg-2) !important; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+@media (max-width: 40rem) { .bar nav { display: none; } .map { height: 70vh; }
+  .bar-in { flex-wrap: nowrap; } .brand { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } }
+.sibling { display: block; margin: 2rem 0 0; padding: 1rem 1.1rem; border: 1px solid var(--rule); background: var(--surface);
+  text-decoration: none; max-width: 40rem; }
+.sibling:hover { border-color: var(--fg-2); }
+.sibling .k { font-family: var(--mono); font-size: var(--step--1); color: var(--accent); letter-spacing: 0.04em;
+  text-transform: uppercase; }
+.sibling .t { display: block; font-weight: 600; margin: 0.25rem 0 0.15rem; }
+.sibling .d { display: block; font-size: var(--step--1); color: var(--fg-2); }
+table.ways td, table.ways th { white-space: normal; vertical-align: top; }
+table.ways td:first-child { font-weight: 500; }
+table.ways td:nth-child(2), table.ways th:nth-child(2) { text-align: left; }
+table.ways th { cursor: default; }
+table.ways td:last-child, table.ways th:last-child { white-space: nowrap; }
+table.plain th { cursor: default; }
+.maperr { display: flex; align-items: center; justify-content: center; height: 100%; padding: 1rem; text-align: center;
+  color: var(--fg-2); font-size: var(--step--1); }
+</style>
+<style>
+.cards { display: grid; gap: 1rem; margin: 2rem 0; }
+.cards .sibling { margin: 0; max-width: none; }
+</style>
+
+</head>
+<body>
+<div class="bar"><div class="bar-in">
+  <div class="brand"><span lang="ru">Зелёный Белград</span><span lang="en">Belgrade Green</span></div>
+  <div class="lang" role="group" aria-label="Language" data-aria-ru="Язык" data-aria-en="Language">
+    <button type="button" id="lang-ru" data-set-lang="ru">RU</button>
+    <button type="button" id="lang-en" data-set-lang="en">EN</button>
+  </div>
+</div></div>
+
+<main>
+<header class="hero col">
+  <div class="eyebrow"><span lang="ru">Белград · открытые данные · 2026</span><span lang="en">Belgrade · open data · 2026</span></div>
+  <h1><span lang="ru">Зелёный Белград</span><span lang="en">Belgrade Green</span></h1>
+  <p class="lede"><span lang="ru">Два небольших исследования зелени Белграда на открытых данных, каждое со своей страницей.</span><span lang="en">Two small open-data studies of Belgrade's greenery, each with its own page.</span></p>
+  <div class="byline"><span><span lang="ru">Мария Эрцеговац, геоаналитик</span><span lang="en">Marija Ercegovac, geospatial analyst</span></span>
+    <a href="https://t.me/urban_mash">@urban_mash</a>
+    <a href="https://github.com/m-erts/belgrade-green"><span lang="ru">код и данные на GitHub</span><span lang="en">code and data on GitHub</span></a></div>
+  <div class="cards">
+    <a class="sibling" href="connectivity/"><span class="k"><span lang="ru">Часть 1</span><span lang="en">Part 1</span></span>
+      <span class="t"><span lang="ru">Лесной каркас Белграда как граф</span><span lang="en">Belgrade's tree network as a graph</span></span>
+      <span class="d"><span lang="ru">Какая часть городского леса работает как одна сеть, какие леса держат её как мосты и где она пережата</span><span lang="en">How much of the city's forest works as one network, which forests hold it together as bridges, and where it is squeezed</span></span></a>
+    <a class="sibling" href="measures/"><span class="k"><span lang="ru">Часть 2</span><span lang="en">Part 2</span></span>
+      <span class="t"><span lang="ru">Пять способов измерить зелень Белграда</span><span lang="en">Five ways to measure Belgrade's greenery</span></span>
+      <span class="d"><span lang="ru">Почему спутник, кроны, уличная съёмка и норматив ставят одни и те же районы на разные места, и что нормируют в разных странах</span><span lang="en">Why a satellite, a canopy map, street-level imagery and a planning norm rank the same districts differently, and what norms in different countries measure</span></span></a>
+  </div>
+</header>
+<footer class="col">
+  <span lang="ru">Мария Эрцеговац, 2026. Текст и рисунки — CC BY 4.0, код — MIT. Картографические данные © участники OpenStreetMap.</span><span lang="en">Marija Ercegovac, 2026. Text and figures CC BY 4.0, code MIT. Map data © OpenStreetMap contributors.</span>
+</footer>
+</main>
+<div class="tip" id="tip" hidden></div>
+<script>/* Shared by both pages: language switch, theme watchers, tooltip, data loading and the base map. */
+const BG = (function () {
+  const root = document.documentElement;
+  const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+                  set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+  const hash = (location.hash || "").replace("#", "");
+  let lang = store.get("bg-lang") || ((navigator.language || "en").toLowerCase().startsWith("ru") ? "ru" : "en");
+  if (hash === "ru" || hash === "en") lang = hash;
+  const titles = { ru: document.title, en: document.title };
+  function setLang(l) {
+    lang = l; root.dataset.lang = l; root.lang = l; store.set("bg-lang", l);
+    document.title = titles[l];
+    document.querySelectorAll("[data-aria-ru]").forEach(e => e.setAttribute("aria-label", l === "ru" ? e.dataset.ariaRu : e.dataset.ariaEn));
+    document.querySelectorAll("[data-set-lang]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.setLang === l)));
+    window.dispatchEvent(new Event("bg-lang"));
+  }
+  document.querySelectorAll("[data-set-lang]").forEach(b => b.addEventListener("click", () => setLang(b.dataset.setLang)));
+  function setTitles(ru, en) { titles.ru = ru; titles.en = en; document.title = titles[lang]; }
+
+  const css = n => getComputedStyle(root).getPropertyValue(n).trim();
+  const T = (ru, en) => (lang === "ru" ? ru : en);
+  const fmt = (x, d = 0) => Number(x).toLocaleString(lang === "ru" ? "ru-RU" : "en-GB",
+    { minimumFractionDigits: d, maximumFractionDigits: d });
+  const tip = document.getElementById("tip");
+  function showTip(html, x, y) {
+    tip.innerHTML = html; tip.hidden = false;
+    const r = tip.getBoundingClientRect();
+    const px = Math.min(window.scrollX + x + 14, window.scrollX + document.documentElement.clientWidth - r.width - 8);
+    tip.style.left = Math.max(window.scrollX + 8, px) + "px"; tip.style.top = (window.scrollY + y + 14) + "px";
+  }
+  const hideTip = () => { tip.hidden = true; };
+  const themeWatchers = [];
+  const onTheme = fn => themeWatchers.push(fn);
+  const fire = () => themeWatchers.forEach(f => f());
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", fire);
+  new MutationObserver(fire).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
+  window.addEventListener("bg-lang", fire);
+  const getJSON = p => fetch(p).then(r => { if (!r.ok) throw new Error(p + " " + r.status); return r.json(); });
+
+  function loadError(id, ru = "Не удалось загрузить данные. Обновите страницу.", en = "The data could not be loaded. Please reload the page.") {
+    document.getElementById(id).innerHTML = `<div class="maperr"><span lang="ru">${ru}</span><span lang="en">${en}</span></div>`;
+  }
+  const mapError = id => loadError(id, "Не удалось загрузить карту. Обновите страницу.", "The map could not be loaded. Please reload the page.");
+
+  /* The page can start inside a 0×0 frame (claude.ai renders artifacts that way before showing them). A Leaflet map
+     created there fits Belgrade into zero pixels and never recovers, so the map is created only once its box has a
+     size, and it re-fits the city whenever the box changes until the reader pans or zooms. */
+  function whenSized(el, fn) {
+    if (el.clientWidth > 0 && el.clientHeight > 0) { fn(); return; }
+    const ro = new ResizeObserver(() => { if (el.clientWidth > 0 && el.clientHeight > 0) { ro.disconnect(); fn(); } });
+    ro.observe(el);
+  }
+  function baseMap(id, ctx, ready) {
+    if (typeof L === "undefined") { mapError(id); return; }
+    const el = document.getElementById(id);
+    whenSized(el, () => {
+      const map = L.map(el, { preferCanvas: true, zoomSnap: 0.25, attributionControl: true, scrollWheelZoom: false });
+      map.attributionControl.setPrefix(false);
+      map.attributionControl.addAttribution("© OpenStreetMap contributors · ESA WorldCover");
+      const water = L.geoJSON(ctx.water, { interactive: false });
+      const roads = L.geoJSON(ctx.roads, { interactive: false });
+      const units = L.geoJSON(ctx.units, { interactive: false });
+      function style() {
+        water.setStyle({ stroke: false, fillColor: css("--water"), fillOpacity: 1 });
+        roads.setStyle({ color: css("--road"), weight: 1, opacity: 1 });
+        units.setStyle({ color: css("--unit"), weight: 0.8, fill: false, opacity: 1 });
+      }
+      const bounds = units.getBounds();
+      let fitting = false, moved = false;
+      const fit = () => { fitting = true; map.fitBounds(bounds, { padding: [10, 10], animate: false }); fitting = false; };
+      fit();  /* the view must exist before canvas layers are added */
+      water.addTo(map); roads.addTo(map); units.addTo(map); style(); onTheme(style);
+      map.on("movestart zoomstart", () => { if (!fitting) moved = true; });
+      new ResizeObserver(() => {
+        if (!el.clientWidth || !el.clientHeight) return;
+        map.invalidateSize({ pan: false });
+        if (!moved) fit();
+      }).observe(el);
+      map.once("focus", () => map.scrollWheelZoom.enable());
+      ready(map);
+    });
+  }
+
+  setLang(lang);
+  return { T, fmt, css, showTip, hideTip, onTheme, getJSON, baseMap, mapError, loadError, setTitles, get lang() { return lang; } };
+})();
+</script>
+<script>BG.setTitles("Зелёный Белград", "Belgrade Green");</script>
+
+</body>
+</html>

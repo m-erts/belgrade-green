@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this code or its results, please cite it using the metadata below."
+type: software
+title: "Belgrade green: the urban tree network as a graph and five ways to measure greenery"
+abstract: >-
+  Two small open-data studies of Belgrade, Serbia. Part 1 models the tree network of the city as a
+  graph: tree patches from ESA WorldCover, least-cost links over a resistance surface with OSM roads
+  and railways, the Probability of Connectivity, Equivalent Connected area and dPC (intra, flux,
+  connector), build-over scenarios that rebuild the network, and circuit-theory pinch points. Part 2
+  measures greenery in the ten urban parts of the settlement Beograd in five ways (Sentinel-2 NDVI,
+  WorldCover tree cover, Meta/WRI 1 m canopy, street-level Green View Index from Mapillary, public
+  green per resident) plus access to green space within 300 m, and compares their rankings.
+authors:
+  - family-names: Ercegovac
+    given-names: Marija
+    alias: m-erts
+    website: "https://www.linkedin.com/in/marija-ercegovac/"
+version: 0.1.0
+repository-code: "https://github.com/m-erts/belgrade-green"
+license: MIT
+keywords:
+  - landscape connectivity
+  - probability of connectivity
+  - equivalent connected area
+  - circuit theory
+  - green infrastructure
+  - green view index
+  - urban canopy
+  - NDVI
+  - Belgrade

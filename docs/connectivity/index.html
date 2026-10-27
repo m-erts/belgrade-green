@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Лесной каркас Белграда</title>
+<meta name="description" content="How much of Belgrade's forest works as one network, which forests hold it together and where it is squeezed. Open data, open code.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>.leaflet-image-layer,.leaflet-layer,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-pane,.leaflet-pane>canvas,.leaflet-pane>svg,.leaflet-tile,.leaflet-tile-container,.leaflet-zoom-box{position:absolute;left:0;top:0}.leaflet-container{overflow:hidden}.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-tile{-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-user-drag:none}.leaflet-tile::selection{background:0 0}.leaflet-safari .leaflet-tile{image-rendering:-webkit-optimize-contrast}.leaflet-safari .leaflet-tile-container{width:1600px;height:1600px;-webkit-transform-origin:0 0}.leaflet-marker-icon,.leaflet-marker-shadow{display:block}.leaflet-container .leaflet-overlay-pane svg{max-width:none!important;max-height:none!important}.leaflet-container .leaflet-marker-pane img,.leaflet-container .leaflet-shadow-pane img,.leaflet-container .leaflet-tile,.leaflet-container .leaflet-tile-pane img,.leaflet-container img.leaflet-image-layer{max-width:none!important;max-height:none!important;width:auto;padding:0}.leaflet-container img.leaflet-tile{mix-blend-mode:plus-lighter}.leaflet-container.leaflet-touch-zoom{-ms-touch-action:pan-x pan-y;touch-action:pan-x pan-y}.leaflet-container.leaflet-touch-drag{-ms-touch-action:pinch-zoom;touch-action:none;touch-action:pinch-zoom}.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom{-ms-touch-action:none;touch-action:none}.leaflet-container{-webkit-tap-highlight-color:transparent}.leaflet-container a{-webkit-tap-highlight-color:rgba(51,181,229,.4)}.leaflet-tile{filter:inherit;visibility:hidden}.leaflet-tile-loaded{visibility:inherit}.leaflet-zoom-box{width:0;height:0;-moz-box-sizing:border-box;box-sizing:border-box;z-index:800}.leaflet-overlay-pane svg{-moz-user-select:none}.leaflet-pane{z-index:400}.leaflet-tile-pane{z-index:200}.leaflet-overlay-pane{z-index:400}.leaflet-shadow-pane{z-index:500}.leaflet-marker-pane{z-index:600}.leaflet-tooltip-pane{z-index:650}.leaflet-popup-pane{z-index:700}.leaflet-map-pane canvas{z-index:100}.leaflet-map-pane svg{z-index:200}.leaflet-vml-shape{width:1px;height:1px}.lvml{behavior:url(#default#VML);display:inline-block;position:absolute}.leaflet-control{position:relative;z-index:800;pointer-events:visiblePainted;pointer-events:auto}.leaflet-bottom,.leaflet-top{position:absolute;z-index:1000;pointer-events:none}.leaflet-top{top:0}.leaflet-right{right:0}.leaflet-bottom{bottom:0}.leaflet-left{left:0}.leaflet-control{float:left;clear:both}.leaflet-right .leaflet-control{float:right}.leaflet-top .leaflet-control{margin-top:10px}.leaflet-bottom .leaflet-control{margin-bottom:10px}.leaflet-left .leaflet-control{margin-left:10px}.leaflet-right .leaflet-control{margin-right:10px}.leaflet-fade-anim .leaflet-popup{opacity:0;-webkit-transition:opacity .2s linear;-moz-transition:opacity .2s linear;transition:opacity .2s linear}.leaflet-fade-anim .leaflet-map-pane .leaflet-popup{opacity:1}.leaflet-zoom-animated{-webkit-transform-origin:0 0;-ms-transform-origin:0 0;transform-origin:0 0}svg.leaflet-zoom-animated{will-change:transform}.leaflet-zoom-anim .leaflet-zoom-animated{-webkit-transition:-webkit-transform .25s cubic-bezier(0,0,.25,1);-moz-transition:-moz-transform .25s cubic-bezier(0,0,.25,1);transition:transform .25s cubic-bezier(0,0,.25,1)}.leaflet-pan-anim .leaflet-tile,.leaflet-zoom-anim .leaflet-tile{-webkit-transition:none;-moz-transition:none;transition:none}.leaflet-zoom-anim .leaflet-zoom-hide{visibility:hidden}.leaflet-interactive{cursor:pointer}.leaflet-grab{cursor:-webkit-grab;cursor:-moz-grab;cursor:grab}.leaflet-crosshair,.leaflet-crosshair .leaflet-interactive{cursor:crosshair}.leaflet-control,.leaflet-popup-pane{cursor:auto}.leaflet-dragging .leaflet-grab,.leaflet-dragging .leaflet-grab .leaflet-interactive,.leaflet-dragging .leaflet-marker-draggable{cursor:move;cursor:-webkit-grabbing;cursor:-moz-grabbing;cursor:grabbing}.leaflet-image-layer,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-pane>svg path,.leaflet-tile-container{pointer-events:none}.leaflet-image-layer.leaflet-interactive,.leaflet-marker-icon.leaflet-interactive,.leaflet-pane>svg path.leaflet-interactive,svg.leaflet-image-layer.leaflet-interactive path{pointer-events:visiblePainted;pointer-events:auto}.leaflet-container{background:#ddd;outline-offset:1px}.leaflet-container a{color:#0078a8}.leaflet-zoom-box{border:2px dotted #38f;background:rgba(255,255,255,.5)}.leaflet-container{font-family:"Helvetica Neue",Arial,Helvetica,sans-serif;font-size:12px;font-size:.75rem;line-height:1.5}.leaflet-bar{box-shadow:0 1px 5px rgba(0,0,0,.65);border-radius:4px}.leaflet-bar a{background-color:#fff;border-bottom:1px solid #ccc;width:26px;height:26px;line-height:26px;display:block;text-align:center;text-decoration:none;color:#000}.leaflet-bar a,.leaflet-control-layers-toggle{background-position:50% 50%;background-repeat:no-repeat;display:block}.leaflet-bar a:focus,.leaflet-bar a:hover{background-color:#f4f4f4}.leaflet-bar a:first-child{border-top-left-radius:4px;border-top-right-radius:4px}.leaflet-bar a:last-child{border-bottom-left-radius:4px;border-bottom-right-radius:4px;border-bottom:none}.leaflet-bar a.leaflet-disabled{cursor:default;background-color:#f4f4f4;color:#bbb}.leaflet-touch .leaflet-bar a{width:30px;height:30px;line-height:30px}.leaflet-touch .leaflet-bar a:first-child{border-top-left-radius:2px;border-top-right-radius:2px}.leaflet-touch .leaflet-bar a:last-child{border-bottom-left-radius:2px;border-bottom-right-radius:2px}.leaflet-control-zoom-in,.leaflet-control-zoom-out{font:bold 18px 'Lucida Console',Monaco,monospace;text-indent:1px}.leaflet-touch .leaflet-control-zoom-in,.leaflet-touch .leaflet-control-zoom-out{font-size:22px}.leaflet-control-layers{box-shadow:0 1px 5px rgba(0,0,0,.4);background:#fff;border-radius:5px}.leaflet-control-layers-toggle{background-image:url(images/layers.png);width:36px;height:36px}.leaflet-retina .leaflet-control-layers-toggle{background-image:url(images/layers-2x.png);background-size:26px 26px}.leaflet-touch .leaflet-control-layers-toggle{width:44px;height:44px}.leaflet-control-layers .leaflet-control-layers-list,.leaflet-control-layers-expanded .leaflet-control-layers-toggle{display:none}.leaflet-control-layers-expanded .leaflet-control-layers-list{display:block;position:relative}.leaflet-control-layers-expanded{padding:6px 10px 6px 6px;color:#333;background:#fff}.leaflet-control-layers-scrollbar{overflow-y:scroll;overflow-x:hidden;padding-right:5px}.leaflet-control-layers-selector{margin-top:2px;position:relative;top:1px}.leaflet-control-layers label{display:block;font-size:13px;font-size:1.08333em}.leaflet-control-layers-separator{height:0;border-top:1px solid #ddd;margin:5px -10px 5px -6px}.leaflet-default-icon-path{background-image:url(images/marker-icon.png)}.leaflet-container .leaflet-control-attribution{background:#fff;background:rgba(255,255,255,.8);margin:0}.leaflet-control-attribution,.leaflet-control-scale-line{padding:0 5px;color:#333;line-height:1.4}.leaflet-control-attribution a{text-decoration:none}.leaflet-control-attribution a:focus,.leaflet-control-attribution a:hover{text-decoration:underline}.leaflet-attribution-flag{display:inline!important;vertical-align:baseline!important;width:1em;height:.6669em}.leaflet-left .leaflet-control-scale{margin-left:5px}.leaflet-bottom .leaflet-control-scale{margin-bottom:5px}.leaflet-control-scale-line{border:2px solid #777;border-top:none;line-height:1.1;padding:2px 5px 1px;white-space:nowrap;-moz-box-sizing:border-box;box-sizing:border-box;background:rgba(255,255,255,.8);text-shadow:1px 1px #fff}.leaflet-control-scale-line:not(:first-child){border-top:2px solid #777;border-bottom:none;margin-top:-2px}.leaflet-control-scale-line:not(:first-child):not(:last-child){border-bottom:2px solid #777}.leaflet-touch .leaflet-bar,.leaflet-touch .leaflet-control-attribution,.leaflet-touch .leaflet-control-layers{box-shadow:none}.leaflet-touch .leaflet-bar,.leaflet-touch .leaflet-control-layers{border:2px solid rgba(0,0,0,.2);background-clip:padding-box}.leaflet-popup{position:absolute;text-align:center;margin-bottom:20px}.leaflet-popup-content-wrapper{padding:1px;text-align:left;border-radius:12px}.leaflet-popup-content{margin:13px 24px 13px 20px;line-height:1.3;font-size:13px;font-size:1.08333em;min-height:1px}.leaflet-popup-content p{margin:17px 0;margin:1.3em 0}.leaflet-popup-tip-container{width:40px;height:20px;position:absolute;left:50%;margin-top:-1px;margin-left:-20px;overflow:hidden;pointer-events:none}.leaflet-popup-tip{width:17px;height:17px;padding:1px;margin:-10px auto 0;pointer-events:auto;-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#fff;color:#333;box-shadow:0 3px 14px rgba(0,0,0,.4)}.leaflet-container a.leaflet-popup-close-button{position:absolute;top:0;right:0;border:none;text-align:center;width:24px;height:24px;font:16px/24px Tahoma,Verdana,sans-serif;color:#757575;text-decoration:none;background:0 0}.leaflet-container a.leaflet-popup-close-button:focus,.leaflet-container a.leaflet-popup-close-button:hover{color:#585858}.leaflet-popup-scrolled{overflow:auto}.leaflet-oldie .leaflet-popup-content-wrapper{-ms-zoom:1}.leaflet-oldie .leaflet-popup-tip{width:24px;margin:0 auto}.leaflet-oldie .leaflet-control-layers,.leaflet-oldie .leaflet-control-zoom,.leaflet-oldie .leaflet-popup-content-wrapper,.leaflet-oldie .leaflet-popup-tip{border:1px solid #999}.leaflet-div-icon{background:#fff;border:1px solid #666}.leaflet-tooltip{position:absolute;padding:6px;background-color:#fff;border:1px solid #fff;border-radius:3px;color:#222;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,.4)}.leaflet-tooltip.leaflet-interactive{cursor:pointer;pointer-events:auto}.leaflet-tooltip-bottom:before,.leaflet-tooltip-left:before,.leaflet-tooltip-right:before,.leaflet-tooltip-top:before{position:absolute;pointer-events:none;border:6px solid transparent;background:0 0;content:""}.leaflet-tooltip-bottom{margin-top:6px}.leaflet-tooltip-top{margin-top:-6px}.leaflet-tooltip-bottom:before,.leaflet-tooltip-top:before{left:50%;margin-left:-6px}.leaflet-tooltip-top:before{bottom:0;margin-bottom:-12px;border-top-color:#fff}.leaflet-tooltip-bottom:before{top:0;margin-top:-12px;margin-left:-6px;border-bottom-color:#fff}.leaflet-tooltip-left{margin-left:-6px}.leaflet-tooltip-right{margin-left:6px}.leaflet-tooltip-left:before,.leaflet-tooltip-right:before{top:50%;margin-top:-6px}.leaflet-tooltip-left:before{right:0;margin-right:-12px;border-left-color:#fff}.leaflet-tooltip-right:before{left:0;margin-left:-12px;border-right-color:#fff}@media print{.leaflet-control{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style>
+<style>/* Layout: one reading column (~68ch) with full-bleed map panels; a sticky bar carries the language switch. */
+:root {
+  --bg: #fbfcfa; --surface: #f1f4ef; --fg: #131713; --fg-2: #4d554c; --muted: #7d857c; --rule: #dbe1d8;
+  --accent: #e2602b; --blue: #2a78d6; --aqua: #1baf7a;
+  --patch: #9ccb88; --patch-2: #5f9e50; --water: #dde7ee; --road: #d3d7cf; --unit: #a9b0a6;
+  --grey-mark: #c6cbc2;
+  --g1: #b2d6a1; --g2: #8cc178; --g3: #63a752; --g4: #3f8a36; --g5: #246c24; --g6: #124d17;
+  --sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --step--1: 0.8125rem; --step-0: 1rem; --step-1: 1.1875rem; --step-2: 1.5rem; --step-3: 2.125rem; --step-4: 3rem;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111411; --surface: #191d19; --fg: #edf1ea; --fg-2: #b6beb3; --muted: #858d83; --rule: #2a312a;
+  --accent: #f0814f; --blue: #4a93ea; --aqua: #22b884;
+  --patch: #4c7f42; --patch-2: #78b766; --water: #1d2a33; --road: #333a33; --unit: #5d665b; --grey-mark: #3f463e;
+  --g1: #2f5a2a; --g2: #3f7a37; --g3: #569d49; --g4: #78b766; --g5: #9fd08b; --g6: #c8e8b8;
+  color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #111411; --surface: #191d19; --fg: #edf1ea; --fg-2: #b6beb3; --muted: #858d83; --rule: #2a312a;
+  --accent: #f0814f; --blue: #4a93ea; --aqua: #22b884;
+  --patch: #4c7f42; --patch-2: #78b766; --water: #1d2a33; --road: #333a33; --unit: #5d665b; --grey-mark: #3f463e;
+  --g1: #2f5a2a; --g2: #3f7a37; --g3: #569d49; --g4: #78b766; --g5: #9fd08b; --g6: #c8e8b8;
+  color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: var(--step-0); line-height: 1.55;
+  -webkit-font-smoothing: antialiased; }
+html[data-lang="ru"] [lang="en"], html[data-lang="en"] [lang="ru"] { display: none !important; }
+a { color: inherit; text-decoration-color: var(--muted); text-underline-offset: 0.2em; }
+a:hover { text-decoration-color: var(--fg); }
+a:focus-visible, button:focus-visible, th:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 3000; background: var(--bg);
+  border-bottom: 1px solid var(--rule); }
+.bar-in { max-width: 72rem; margin: 0 auto; padding: 0.6rem 16px; display: flex; gap: 1rem; align-items: center;
+  justify-content: space-between; flex-wrap: wrap; }
+.bar nav { display: flex; gap: 1.1rem; flex-wrap: wrap; font-size: var(--step--1); color: var(--fg-2); }
+.bar nav a { text-decoration: none; }
+.brand { font-weight: 600; letter-spacing: -0.01em; }
+.lang { display: inline-flex; border: 1px solid var(--rule); }
+.lang button { font: inherit; font-size: var(--step--1); background: transparent; color: var(--fg-2); border: 0;
+  padding: 0.25rem 0.6rem; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+main { padding-inline: 16px; }
+.col { max-width: 44rem; margin: 0 auto; }
+.wide { max-width: 72rem; margin: 0 auto; }
+header.hero { padding-block: 3.5rem 1.5rem; }
+.eyebrow { font-family: var(--mono); font-size: var(--step--1); color: var(--muted); letter-spacing: 0.04em;
+  text-transform: uppercase; }
+h1 { font-size: clamp(2rem, 1.2rem + 3.2vw, var(--step-4)); line-height: 1.08; letter-spacing: -0.025em;
+  font-weight: 600; margin: 0.6rem 0 1rem; text-wrap: balance; }
+h2 { font-size: var(--step-3); line-height: 1.15; letter-spacing: -0.02em; font-weight: 600; margin: 0 0 0.75rem;
+  text-wrap: balance; }
+h3 { font-size: var(--step-1); font-weight: 600; margin: 2rem 0 0.5rem; text-wrap: balance; }
+p { margin: 0 0 1rem; }
+.lede { font-size: var(--step-1); color: var(--fg-2); max-width: 40rem; }
+.byline { font-size: var(--step--1); color: var(--muted); display: flex; gap: 0.9rem; flex-wrap: wrap; }
+section.part { padding-block: 3rem 1rem; border-top: 1px solid var(--rule); }
+.part-num { font-family: var(--mono); color: var(--accent); font-size: var(--step--1); letter-spacing: 0.04em; }
+.statement { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 1.25rem 2rem;
+  margin: 1.75rem 0 1.5rem; }
+.stat .v { font-size: var(--step-3); font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
+.stat .v small { font-size: var(--step-1); font-weight: 500; color: var(--fg-2); }
+.stat .l { font-size: var(--step--1); color: var(--fg-2); margin-top: 0.25rem; }
+.mapbox { position: relative; margin: 1.5rem auto; max-width: 72rem; }
+.map { height: min(78vh, 46rem); background: var(--surface); border: 1px solid var(--rule); }
+.map-legend { display: flex; gap: 0.6rem 1.4rem; flex-wrap: wrap; font-size: var(--step--1); color: var(--fg-2);
+  margin-top: 0.6rem; align-items: center; }
+.sw { display: inline-block; width: 0.85rem; height: 0.85rem; vertical-align: -0.1rem; margin-right: 0.35rem; }
+.sw.diamond { transform: rotate(45deg) scale(0.75); }
+.ramp { display: inline-block; width: 8rem; height: 0.6rem; vertical-align: 0; margin: 0 0.4rem; }
+.caption { font-size: var(--step--1); color: var(--muted); }
+ol.findings { list-style: none; counter-reset: f; padding: 0; margin: 1.5rem 0; display: grid; gap: 1.1rem; }
+ol.findings li { counter-increment: f; display: grid; grid-template-columns: 2rem 1fr; gap: 0.5rem; }
+ol.findings li::before { content: counter(f); font-family: var(--mono); color: var(--muted); font-size: var(--step--1);
+  padding-top: 0.2rem; }
+ol.findings b { font-weight: 600; }
+.chart { margin: 1.5rem 0; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart text { font-family: var(--sans); }
+.chart text:not([fill]) { fill: var(--fg-2); }
+.chart .maperr { min-height: 6rem; }
+.tip { position: absolute; pointer-events: none; z-index: 3500; background: var(--bg); color: var(--fg); border: 1px solid var(--rule);
+  font-size: var(--step--1); padding: 0.4rem 0.55rem; line-height: 1.4; max-width: 18rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+.tip[hidden] { display: none; }
+.tablewrap { overflow-x: auto; margin: 1.5rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: var(--step--1); font-variant-numeric: tabular-nums; }
+th, td { text-align: right; padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+th { font-weight: 500; color: var(--fg-2); cursor: pointer; user-select: none; vertical-align: bottom; }
+th[aria-sort] { color: var(--fg); }
+td .rk { color: var(--muted); font-family: var(--mono); margin-left: 0.35rem; font-size: 0.75rem; }
+td.best { font-weight: 600; }
+.ruler { margin: 1.25rem 0 1.75rem; }
+.ruler svg { width: 100%; height: auto; display: block; }
+.norms { display: grid; gap: 1.1rem; margin: 1.25rem 0; }
+.norm h4 { margin: 0 0 0.3rem; font-size: var(--step-0); font-weight: 600; }
+.norm ul { margin: 0; padding-left: 1.1rem; color: var(--fg-2); }
+.norm li { margin: 0.15rem 0; }
+.figure { margin: 1.5rem 0; }
+.figure img { display: block; width: 100%; max-width: 34rem; border: 1px solid var(--rule); }
+.callout { border-left: 2px solid var(--accent); padding: 0.2rem 0 0.2rem 1rem; margin: 1.5rem 0; color: var(--fg-2); }
+.meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1.5rem; margin: 1.5rem 0; }
+.meta-grid div { min-width: 0; }
+.meta-grid h4 { margin: 0 0 0.4rem; font-size: var(--step--1); font-family: var(--mono); color: var(--muted);
+  font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; }
+.meta-grid p, .meta-grid ul { font-size: var(--step--1); color: var(--fg-2); margin: 0; }
+.meta-grid ul { padding-left: 1rem; }
+footer { border-top: 1px solid var(--rule); margin-top: 3rem; padding-block: 2rem 3rem; font-size: var(--step--1);
+  color: var(--muted); }
+.leaflet-container { background: var(--surface); font-family: var(--sans); }
+.leaflet-tooltip.gtip { white-space: normal; width: max-content; max-width: min(18rem, calc(100vw - 48px));
+  background: var(--bg); color: var(--fg); border: 1px solid var(--rule); border-radius: 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08); font-size: var(--step--1); line-height: 1.4; padding: 0.35rem 0.5rem; }
+.leaflet-tooltip.gtip::before { display: none; }
+@media (max-width: 36rem) { .maplabel { display: none; } }
+.maplabel { font-size: 0.72rem; font-weight: 500; color: var(--fg); white-space: nowrap; text-shadow: 0 0 3px var(--bg),
+  0 0 3px var(--bg), 0 0 3px var(--bg); pointer-events: none; }
+.diamond-ic { width: 12px; height: 12px; background: var(--fg); transform: rotate(45deg); outline: 2px solid var(--bg); }
+.leaflet-control-zoom a { background: var(--bg) !important; color: var(--fg) !important; border-color: var(--rule) !important; }
+.leaflet-control-attribution { background: color-mix(in srgb, var(--bg) 85%, transparent) !important; color: var(--muted) !important; }
+.leaflet-control-attribution a { color: var(--fg-2) !important; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+@media (max-width: 40rem) { .bar nav { display: none; } .map { height: 70vh; }
+  .bar-in { flex-wrap: nowrap; } .brand { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } }
+.sibling { display: block; margin: 2rem 0 0; padding: 1rem 1.1rem; border: 1px solid var(--rule); background: var(--surface);
+  text-decoration: none; max-width: 40rem; }
+.sibling:hover { border-color: var(--fg-2); }
+.sibling .k { font-family: var(--mono); font-size: var(--step--1); color: var(--accent); letter-spacing: 0.04em;
+  text-transform: uppercase; }
+.sibling .t { display: block; font-weight: 600; margin: 0.25rem 0 0.15rem; }
+.sibling .d { display: block; font-size: var(--step--1); color: var(--fg-2); }
+table.ways td, table.ways th { white-space: normal; vertical-align: top; }
+table.ways td:first-child { font-weight: 500; }
+table.ways td:nth-child(2), table.ways th:nth-child(2) { text-align: left; }
+table.ways th { cursor: default; }
+table.ways td:last-child, table.ways th:last-child { white-space: nowrap; }
+table.plain th { cursor: default; }
+.maperr { display: flex; align-items: center; justify-content: center; height: 100%; padding: 1rem; text-align: center;
+  color: var(--fg-2); font-size: var(--step--1); }
+</style>
+
+</head>
+<body>
+<div class="bar"><div class="bar-in">
+  <div class="brand"><span lang="ru">Лесной каркас Белграда</span><span lang="en">Belgrade's tree network</span></div>
+  <nav>
+    <a href="#network"><span lang="ru">Карта</span><span lang="en">Map</span></a>
+    <a href="#ec"><span lang="ru">Сколько работает</span><span lang="en">How much works</span></a>
+    <a href="#pinch"><span lang="ru">Где пережат</span><span lang="en">Pinch points</span></a>
+    <a href="#classic"><span lang="ru">Классика</span><span lang="en">Classic metrics</span></a>
+    <a href="#method"><span lang="ru">Метод и данные</span><span lang="en">Method and data</span></a>
+  </nav>
+  <div class="lang" role="group" aria-label="Language" data-aria-ru="Язык" data-aria-en="Language">
+    <button type="button" id="lang-ru" data-set-lang="ru">RU</button>
+    <button type="button" id="lang-en" data-set-lang="en">EN</button>
+  </div>
+</div></div>
+
+<main>
+<header class="hero col">
+  <div class="eyebrow"><span lang="ru">Белград · открытые данные · 2026 · часть 1 из 2</span><span lang="en">Belgrade · open data · 2026 · part 1 of 2</span></div>
+  <h1><span lang="ru">Лесной каркас Белграда как граф</span><span lang="en">Belgrade's tree network as a graph</span></h1>
+  <p class="lede"><span lang="ru">Какая часть городского леса работает как одна сеть, какие леса держат её как мосты и где она пережата. Граф, метрики связности Сауры и теория цепей на открытых данных.</span><span lang="en">How much of the city's forest works as one network, which forests hold it together as bridges, and where it is squeezed. A graph, Saura's connectivity metrics and circuit theory, all on open data.</span></p>
+  <div class="byline"><span><span lang="ru">Мария Эрцеговац, геоаналитик</span><span lang="en">Marija Ercegovac, geospatial analyst</span></span>
+    <a href="https://t.me/urban_mash">@urban_mash</a>
+    <a href="https://github.com/m-erts/belgrade-green"><span lang="ru">код и данные на GitHub</span><span lang="en">code and data on GitHub</span></a></div>
+  <a class="sibling" href="../measures/"><span class="k"><span lang="ru">Часть 2 →</span><span lang="en">Part 2 →</span></span>
+    <span class="t"><span lang="ru">Пять способов измерить зелень</span><span lang="en">Five ways to measure greenery</span></span>
+    <span class="d"><span lang="ru">Почему спутник, кроны, уличная съёмка и норматив ставят одни и те же районы Белграда на разные места</span><span lang="en">Why a satellite, a canopy map, street-level imagery and a planning norm rank the same districts of Belgrade differently</span></span></a>
+</header>
+
+<section class="part" id="network">
+  <div class="col">
+    <div class="part-num">01</div>
+    <h2><span lang="ru">Каркас как граф</span><span lang="en">The network as a graph</span></h2>
+    <p><span lang="ru">Каркас в генпланах рисуют стрелочками. Здесь он посчитан. Узлы графа — лесные патчи от 1 га (ESA WorldCover, 10 м). Рёбра — пути наименьшей «стоимости» для условного лесного вида с медианной дистанцией расселения 1 км по лесу. Связность — по Сауре: вероятность связи (PC) и эквивалентная связная площадь (EC), то есть площадь одного сплошного леса, который давал бы ту же связность.</span><span lang="en">Plans draw green networks as arrows. Here the network is computed. Nodes are tree patches of at least 1 ha (ESA WorldCover, 10 m). Links are least-cost paths for a generalist woodland species with a median dispersal distance of 1 km through forest. Connectivity follows Saura: the Probability of Connectivity (PC) and the Equivalent Connected area (EC), the size of one continuous forest that would give the same connectivity.</span></p>
+    <p class="caption" style="margin:1.25rem 0 0"><span lang="ru">Сопротивление: во сколько раз метр пути дороже, чем по лесу</span><span lang="en">Resistance: how many times a metre costs more than through forest</span></p>
+    <div class="ruler" id="ruler" style="margin-top:0.25rem"></div>
+    <div class="statement">
+      <div class="stat"><div class="v"><span lang="ru">11 140</span><span lang="en">11,140</span> <small><span lang="ru">га</span><span lang="en">ha</span></small></div><div class="l"><span lang="ru">лесных патчей от 1 га в городе (насеље «Београд»), 656 штук</span><span lang="en">of tree patches ≥ 1 ha in the city proper (settlement Beograd), 656 patches</span></div></div>
+      <div class="stat"><div class="v"><span lang="ru">4 787</span><span lang="en">4,787</span> <small><span lang="ru">га</span><span lang="en">ha</span></small></div><div class="l"><span lang="ru">столько они дают как один лес (EC). Это 43%, от 37 до 49% при других допущениях</span><span lang="en">is what they add up to as one forest (EC): 43%, from 37 to 49% under other assumptions</span></div></div>
+    </div>
+  </div>
+  <div class="mapbox wide">
+    <div class="map" id="map-net" role="img" aria-label="Map of tree patches, bridges and key crossings in Belgrade" data-aria-ru="Карта лесных патчей, мостов и ключевых переходов Белграда" data-aria-en="Map of tree patches, bridges and key crossings in Belgrade"></div>
+    <div class="map-legend">
+      <span><i class="sw" style="background:var(--patch)"></i><span lang="ru">лесной патч ≥ 1 га</span><span lang="en">tree patch ≥ 1 ha</span></span>
+      <span><i class="sw" style="background:var(--accent)"></i><span lang="ru">мост: застройка стоит сети заметно больше его площади (≥ 1,15× в обоих прогонах)</span><span lang="en">bridge: building it over costs clearly more than its area (≥ 1.15× in both runs)</span></span>
+      <span><i class="sw diamond" style="background:var(--fg)"></i><span lang="ru">место, на котором держится связность</span><span lang="en">a spot the network depends on</span></span>
+      <span class="caption"><span lang="ru">Наведите на патч, чтобы увидеть, что будет при его застройке</span><span lang="en">Hover a patch to see what building it over would cost</span></span>
+    </div>
+  </div>
+  <div class="col">
+    <ol class="findings">
+      <li><div><span lang="ru"><b>Пояс Баница — Миляковац — Йайинци — Степин луг держит сеть.</b> Его застройка стоила бы городу 37–50% EC.</span><span lang="en"><b>The Banjica — Miljakovac — Jajinci — Stepin lug belt holds the network.</b> Building it over would cost the city 37–50% of its EC.</span></div></li>
+      <li><div><span lang="ru"><b>Главный мост — леса у Беле Воде и Церака, 277 га.</b> Они связывают Аду Циганлию с поясом Баницы. Их застройка стоила бы 630–660 га EC, примерно в 2,3 раза больше их площади.</span><span lang="en"><b>The main bridge is the forest at Bele Vode and Cerak, 277 ha.</b> It links Ada Ciganlija with the Banjica belt. Building it over would cost 630–660 ha of EC, about 2.3× its area.</span></div></li>
+      <li><div><span lang="ru"><b>Одна улица, Видиковачки венац, отделяет Беле Воде от пояса Баницы.</b> Это самое дорогое ребро графа: без этой связи EC города упадёт примерно на 10%, около 500 га.</span><span lang="en"><b>One street, Vidikovački venac, separates Bele Vode from the Banjica belt.</b> It is the costliest link in the graph: without it the city's EC drops by about 10%, roughly 500 ha.</span></div></li>
+      <li><div><span lang="ru"><b>Кошутняк — Топчидер — Дедине почти смыкается с лесами Баницы.</b> Связь идёт через несколько узких разрывов. Самый узкий — на территории казармы «Баница»: через одну клетку 10 м там проходит 14% всего потока.</span><span lang="en"><b>Košutnjak — Topčider — Dedinje nearly touches the Banjica forests.</b> The link runs through a few narrow gaps. The narrowest is on the grounds of the Banjica barracks, where a single 10 m cell carries 14% of the whole flow.</span></div></li>
+      <li><div><span lang="ru"><b>Парки центра — острова.</b> Для этого вида путь от Калемегдана до Кошутняка «стоит» как 48 км по лесу.</span><span lang="en"><b>Central parks are islands.</b> For this species, the path from Kalemegdan to Košutnjak costs as much as 48 km through forest.</span></div></li>
+    </ol>
+    <p class="caption"><span lang="ru">Каждый мост проверен дважды: участок «застраивается» на растре и сеть пересчитывается целиком, с обрезкой патчей по границе и без неё. Без этой проверки легко ошибиться: в прогоне по десяти городским общинам обрезанный по их границе кусок Липовицкого леса (98 га) выглядел мостом, ×10 от площади. Без обрезки это часть сплошного леса в 15 912 га, и показатель падает до 0,84.</span><span lang="en">Every bridge is tested twice: the patch is built over on the raster and the whole network is rebuilt, with patches clipped at the boundary and without clipping. Without that check it is easy to go wrong: in the run over the ten urban municipalities, a 98 ha piece of the Lipovica forest clipped at their boundary looked like a bridge, at 10× its area. Unclipped, it is part of a continuous 15,912 ha forest, and the ratio drops to 0.84.</span></p>
+  </div>
+</section>
+
+<section class="part" id="ec">
+  <div class="col">
+    <div class="part-num">02</div>
+    <h2><span lang="ru">Сколько каркаса работает как одно целое</span><span lang="en">How much of the network works as one</span></h2>
+    <p><span lang="ru">EC в процентах от площади леса для видов с разной дистанцией расселения. Полоса — разброс по трём наборам сопротивлений. Для вида, который уходит на 100 м, единым целым работает 28% городского леса, для вида, который уходит на 10 км, — 65%. Если взять все 10 городских общин с пригородными лесами, при 1 км выходит 54%.</span><span lang="en">EC as a share of forest area for species with different dispersal distances. The band is the range across three sets of resistance values. For a species that moves 100 m, 28% of the city's forest works as one; for a species that moves 10 km, 65%. Across all 10 urban municipalities, suburban forests included, it is 54% at 1 km.</span></p>
+    <div class="chart" id="ec-chart"></div>
+  </div>
+</section>
+
+<section class="part" id="pinch">
+  <div class="col">
+    <div class="part-num">03</div>
+    <h2><span lang="ru">Где каркас пережат</span><span lang="en">Where the network is squeezed</span></h2>
+    <p><span lang="ru">Теория цепей (McRae et al. 2008), как в Circuitscape и Pinchpoint Mapper: ландшафт — электрическая схема, ток показывает, через какие клетки на самом деле идёт поток. Между Кошутняком и лесами Баницы ток собирается в нескольких узких разрывах, и самый узкий — на территории казармы «Баница».</span><span lang="en">Circuit theory (McRae et al. 2008), as in Circuitscape and Pinchpoint Mapper: the landscape is a resistor network, and the current shows which cells actually carry the flow. Between Košutnjak and the Banjica forests the current gathers in a few narrow gaps, and the narrowest is on the grounds of the Banjica barracks.</span></p>
+    <div class="figure"><img src="../img/pinch_ru.png" alt="Ток между лесами Кошутняка и Баницы" lang="ru" loading="lazy"><img src="../img/pinch_en.png" alt="Current between the Košutnjak and Banjica forests" lang="en" loading="lazy"></div>
+  </div>
+</section>
+
+<section class="part" id="classic">
+  <div class="col">
+    <div class="part-num">04</div>
+    <h2><span lang="ru">А классические ландшафтные метрики?</span><span lang="en">And classic landscape metrics?</span></h2>
+    <p><span lang="ru">Метрики в духе FRAGSTATS для деревьев в границах насеља «Београд»:</span><span lang="en">FRAGSTATS-style metrics for tree cover within the settlement Beograd:</span></p>
+    <div class="tablewrap"><table class="plain">
+      <thead><tr><th><span lang="ru">Метрика</span><span lang="en">Metric</span></th><th><span lang="ru">Значение</span><span lang="en">Value</span></th></tr></thead>
+      <tbody>
+        <tr><td><span lang="ru">Доля деревьев (PLAND)</span><span lang="en">Tree cover share (PLAND)</span></td><td>32%</td></tr>
+        <tr><td><span lang="ru">Пятен деревьев (NP)</span><span lang="en">Tree patches (NP)</span></td><td><span lang="ru">12 891</span><span lang="en">12,891</span></td></tr>
+        <tr><td><span lang="ru">Медиана пятна</span><span lang="en">Median patch</span></td><td><span lang="ru">0,03 га</span><span lang="en">0.03 ha</span></td></tr>
+        <tr><td><span lang="ru">Патчей от 1 га</span><span lang="en">Patches ≥ 1 ha</span></td><td>656</td></tr>
+        <tr><td><span lang="ru">Самый большой патч (LPI)</span><span lang="en">Largest patch (LPI)</span></td><td><span lang="ru">6% города</span><span lang="en">6% of the city</span></td></tr>
+        <tr><td><span lang="ru">До соседа у патчей от 1 га (ENN, среднее)</span><span lang="en">Nearest neighbour, patches ≥ 1 ha (ENN, mean)</span></td><td><span lang="ru">66 м</span><span lang="en">66 m</span></td></tr>
+        <tr><td><span lang="ru">Эффективный размер ячейки (MESH)</span><span lang="en">Effective mesh size (MESH)</span></td><td><span lang="ru">214 га</span><span lang="en">214 ha</span></td></tr>
+      </tbody></table></div>
+    <p><span lang="ru">Эти метрики описывают структуру: сколько, насколько мелко, как далеко. Но для них 66 м луга и 66 м через шестиполосную магистраль — одно и то же. Граф это различает. MESH — близкий родственник EC: это EC без единой связи (2 886 га), возведённая в квадрат и делённая на площадь города.</span><span lang="en">These metrics describe structure: how much, how fragmented, how far apart. But to them 66 m of meadow and 66 m across a six-lane highway are the same. A graph can tell them apart. MESH is a close relative of EC: it is EC with no links at all (2,886 ha), squared and divided by the city's area.</span></p>
+  </div>
+</section>
+
+<section class="part" id="method">
+  <div class="col">
+    <div class="part-num">05</div>
+    <h2><span lang="ru">Метод и данные</span><span lang="en">Method and data</span></h2>
+    <div class="meta-grid">
+      <div><h4><span lang="ru">Граф</span><span lang="en">Graph</span></h4><p><span lang="ru">Планарный граф как в Graphab: зоны наименьшей стоимости вокруг каждого патча, связь там, где зоны соприкасаются. PC, EC и dPC с разложением на intra, flux и connector (Saura &amp; Rubio 2010). Python: rasterio, scikit-image, scipy.</span><span lang="en">A Graphab-style planar graph: least-cost zones around every patch, with a link wherever two zones touch. PC, EC and dPC split into intra, flux and connector (Saura &amp; Rubio 2010). Python: rasterio, scikit-image, scipy.</span></p></div>
+      <div><h4><span lang="ru">Проверки</span><span lang="en">Checks</span></h4><p><span lang="ru">Сценарии застройки с пересчётом всей сети; прогоны с обрезкой патчей по границе и без неё; три набора сопротивлений; теория цепей для пережатых мест.</span><span lang="en">Build-over scenarios with the whole network rebuilt; runs with patches clipped at the boundary and unclipped; three sets of resistance values; circuit theory for pinch points.</span></p></div>
+      <div><h4><span lang="ru">Данные</span><span lang="en">Data</span></h4><ul>
+        <li>ESA WorldCover 2021, 10 m (CC BY 4.0)</li>
+        <li>OpenStreetMap (ODbL)</li>
+        <li><span lang="ru">границы насеља «Београд» и общин — OSM</span><span lang="en">boundaries of the settlement and municipalities: OSM</span></li></ul></div>
+      <div><h4><span lang="ru">Ограничения</span><span lang="en">Limitations</span></h4><p><span lang="ru">Сопротивления — экспертные допущения, поэтому результаты показаны с разбросом. Вид условный. Пиксель 10 м не видит узкие ряды уличных деревьев.</span><span lang="en">Resistance values are expert assumptions, so results are shown with their range. The species is generic. A 10 m pixel misses narrow rows of street trees.</span></p></div>
+    </div>
+    <p><a href="https://github.com/m-erts/belgrade-green"><span lang="ru">Код, методика и все цифры на GitHub</span><span lang="en">Code, methodology and every number on GitHub</span></a></p>
+  </div>
+</section>
+
+<footer class="col">
+  <a class="sibling" href="../measures/" style="margin:0 0 1.5rem"><span class="k"><span lang="ru">Часть 2 →</span><span lang="en">Part 2 →</span></span>
+    <span class="t"><span lang="ru">Пять способов измерить зелень</span><span lang="en">Five ways to measure greenery</span></span></a>
+  <span lang="ru">Мария Эрцеговац, 2026. Текст и рисунки — CC BY 4.0, код — MIT. Картографические данные © участники OpenStreetMap.</span><span lang="en">Marija Ercegovac, 2026. Text and figures CC BY 4.0, code MIT. Map data © OpenStreetMap contributors.</span>
+</footer>
+</main>
+<div class="tip" id="tip" hidden></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>/* Shared by both pages: language switch, theme watchers, tooltip, data loading and the base map. */
+const BG = (function () {
+  const root = document.documentElement;
+  const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+                  set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+  const hash = (location.hash || "").replace("#", "");
+  let lang = store.get("bg-lang") || ((navigator.language || "en").toLowerCase().startsWith("ru") ? "ru" : "en");
+  if (hash === "ru" || hash === "en") lang = hash;
+  const titles = { ru: document.title, en: document.title };
+  function setLang(l) {
+    lang = l; root.dataset.lang = l; root.lang = l; store.set("bg-lang", l);
+    document.title = titles[l];
+    document.querySelectorAll("[data-aria-ru]").forEach(e => e.setAttribute("aria-label", l === "ru" ? e.dataset.ariaRu : e.dataset.ariaEn));
+    document.querySelectorAll("[data-set-lang]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.setLang === l)));
+    window.dispatchEvent(new Event("bg-lang"));
+  }
+  document.querySelectorAll("[data-set-lang]").forEach(b => b.addEventListener("click", () => setLang(b.dataset.setLang)));
+  function setTitles(ru, en) { titles.ru = ru; titles.en = en; document.title = titles[lang]; }
+
+  const css = n => getComputedStyle(root).getPropertyValue(n).trim();
+  const T = (ru, en) => (lang === "ru" ? ru : en);
+  const fmt = (x, d = 0) => Number(x).toLocaleString(lang === "ru" ? "ru-RU" : "en-GB",
+    { minimumFractionDigits: d, maximumFractionDigits: d });
+  const tip = document.getElementById("tip");
+  function showTip(html, x, y) {
+    tip.innerHTML = html; tip.hidden = false;
+    const r = tip.getBoundingClientRect();
+    const px = Math.min(window.scrollX + x + 14, window.scrollX + document.documentElement.clientWidth - r.width - 8);
+    tip.style.left = Math.max(window.scrollX + 8, px) + "px"; tip.style.top = (window.scrollY + y + 14) + "px";
+  }
+  const hideTip = () => { tip.hidden = true; };
+  const themeWatchers = [];
+  const onTheme = fn => themeWatchers.push(fn);
+  const fire = () => themeWatchers.forEach(f => f());
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", fire);
+  new MutationObserver(fire).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
+  window.addEventListener("bg-lang", fire);
+  const getJSON = p => fetch(p).then(r => { if (!r.ok) throw new Error(p + " " + r.status); return r.json(); });
+
+  function loadError(id, ru = "Не удалось загрузить данные. Обновите страницу.", en = "The data could not be loaded. Please reload the page.") {
+    document.getElementById(id).innerHTML = `<div class="maperr"><span lang="ru">${ru}</span><span lang="en">${en}</span></div>`;
+  }
+  const mapError = id => loadError(id, "Не удалось загрузить карту. Обновите страницу.", "The map could not be loaded. Please reload the page.");
+
+  /* The page can start inside a 0×0 frame (claude.ai renders artifacts that way before showing them). A Leaflet map
+     created there fits Belgrade into zero pixels and never recovers, so the map is created only once its box has a
+     size, and it re-fits the city whenever the box changes until the reader pans or zooms. */
+  function whenSized(el, fn) {
+    if (el.clientWidth > 0 && el.clientHeight > 0) { fn(); return; }
+    const ro = new ResizeObserver(() => { if (el.clientWidth > 0 && el.clientHeight > 0) { ro.disconnect(); fn(); } });
+    ro.observe(el);
+  }
+  function baseMap(id, ctx, ready) {
+    if (typeof L === "undefined") { mapError(id); return; }
+    const el = document.getElementById(id);
+    whenSized(el, () => {
+      const map = L.map(el, { preferCanvas: true, zoomSnap: 0.25, attributionControl: true, scrollWheelZoom: false });
+      map.attributionControl.setPrefix(false);
+      map.attributionControl.addAttribution("© OpenStreetMap contributors · ESA WorldCover");
+      const water = L.geoJSON(ctx.water, { interactive: false });
+      const roads = L.geoJSON(ctx.roads, { interactive: false });
+      const units = L.geoJSON(ctx.units, { interactive: false });
+      function style() {
+        water.setStyle({ stroke: false, fillColor: css("--water"), fillOpacity: 1 });
+        roads.setStyle({ color: css("--road"), weight: 1, opacity: 1 });
+        units.setStyle({ color: css("--unit"), weight: 0.8, fill: false, opacity: 1 });
+      }
+      const bounds = units.getBounds();
+      let fitting = false, moved = false;
+      const fit = () => { fitting = true; map.fitBounds(bounds, { padding: [10, 10], animate: false }); fitting = false; };
+      fit();  /* the view must exist before canvas layers are added */
+      water.addTo(map); roads.addTo(map); units.addTo(map); style(); onTheme(style);
+      map.on("movestart zoomstart", () => { if (!fitting) moved = true; });
+      new ResizeObserver(() => {
+        if (!el.clientWidth || !el.clientHeight) return;
+        map.invalidateSize({ pan: false });
+        if (!moved) fit();
+      }).observe(el);
+      map.once("focus", () => map.scrollWheelZoom.enable());
+      ready(map);
+    });
+  }
+
+  setLang(lang);
+  return { T, fmt, css, showTip, hideTip, onTheme, getJSON, baseMap, mapError, loadError, setTitles, get lang() { return lang; } };
+})();
+</script>
+<script>
+(function () {
+  const { T, fmt, css, onTheme, getJSON, baseMap, mapError, loadError, showTip, hideTip } = BG;
+  BG.setTitles("Лесной каркас Белграда", "Belgrade's Tree Network");
+  const DATA = "../data/";
+
+  /* resistance ruler: how many times a metre costs more than a metre through forest, log scale */
+  function drawRuler() {
+    const el = document.getElementById("ruler");
+    const items = [[1, T("лес", "forest")], [4, T("луг", "grass")], [15, T("пашня", "crops")], [50, T("вода", "water")],
+      [60, T("застройка", "built-up")], [150, T("улица", "street")], [300, T("проспект", "primary road")], [1000, T("трасса", "motorway")]];
+    const W = Math.max(340, Math.min(720, el.clientWidth || 640)), H = 92, x0 = 24, x1 = W - 40;
+    const lx = v => x0 + (x1 - x0) * Math.log10(v) / 3;
+    const title = T("Сопротивление: во сколько раз метр пути дороже, чем по лесу", "Resistance: how many times a metre costs more than through forest");
+    let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${title}">`;
+    s += `<line x1="${x0}" y1="46" x2="${x1}" y2="46" stroke="${css("--rule")}" stroke-width="1"/>`;
+    items.forEach(([v, name], i) => {
+      const x = lx(v), up = i % 2 === 0, anchor = i === items.length - 1 ? "end" : "middle", tx = i === items.length - 1 ? x + 8 : x;
+      s += `<line x1="${x}" y1="40" x2="${x}" y2="52" stroke="${css("--fg-2")}" stroke-width="1"/>`;
+      s += `<text x="${tx}" y="${up ? 34 : 68}" font-size="11.5" text-anchor="${anchor}" fill="${css("--fg")}" font-family="var(--mono)">${v}</text>`;
+      s += `<text x="${tx}" y="${up ? 20 : 83}" font-size="11" text-anchor="${anchor}" fill="${css("--fg-2")}">${name}</text>`;
+    });
+    el.innerHTML = s + "</svg>";
+  }
+  drawRuler(); onTheme(drawRuler); window.addEventListener("resize", drawRuler);
+
+  /* network map */
+  Promise.all(["water.geojson", "roads.geojson", "units.geojson", "patches.geojson", "crossings.json"].map(f => getJSON(DATA + f)))
+    .then(([water, roads, units, patches, crossings]) => baseMap("map-net", { water, roads, units }, map => {
+      const styleOf = f => ({ stroke: false, fillOpacity: 1, fillColor: f.properties.bridge ? css("--accent") : css("--patch") });
+      /* Russian and English names for the patches the text talks about; the rest keep their OSM names */
+      const NAMES = { 1: ["Баница — Степин луг", "Banjica — Stepin lug"], 2: ["Ада Циганлия — Макиш", "Ada Ciganlija — Makiš"],
+        3: ["Кошутняк", "Košutnjak"], 7: ["Беле Воде", "Bele Vode"], 9: ["Велико ратно острво", "Great War Island"],
+        10: ["Звездарская шума", "Zvezdara forest"], 25: ["Центральное кладбище", "Central Cemetery"] };
+      const range = (x, y, d) => { const a = fmt(Math.min(x, y), d), b = fmt(Math.max(x, y), d); return a === b ? a : `${a}–${b}`; };
+      const layer = L.geoJSON(patches, {
+        style: styleOf,
+        onEachFeature: (f, l) => {
+          const p = f.properties;
+          l.bindTooltip(() => {
+            const name = NAMES[p.id] ? T(...NAMES[p.id]) : p.name || T("Лес у ", "Forest near ") + (p.place || "");
+            let h = `<b>${name}</b><br>${fmt(p.ha, p.ha < 10 ? 1 : 0)} ${T("га", "ha")}`;
+            if (p.ec_loss != null) {
+              const sameSize = p.ec_loss_t == null || Math.abs(p.ha_t - p.ha) <= 0.1 * p.ha;
+              if (sameSize) {
+                h += `<br>${T("Застройка стоила бы сети", "Building it over would cost")} ${range(p.ec_loss, p.ec_loss_t ?? p.ec_loss, 0)} ${T("га EC", "ha of EC")}`;
+                h += ` (×${range(p.lev, p.lev_t ?? p.lev, 1)} ${T("от площади", "its area")})`;
+              } else {
+                h += `<br>${T("Застройка стоила бы сети", "Building it over would cost")} ${fmt(p.ec_loss)} ${T("га EC", "ha of EC")} (×${fmt(p.lev, 1)})`;
+                h += `<br><span class="caption">${T("Без обрезки по границе это часть патча", "Unclipped, it is part of a patch of")} ${fmt(p.ha_t)} ${T("га", "ha")}: ${fmt(p.ec_loss_t)} ${T("га EC", "ha of EC")} (×${fmt(p.lev_t, 1)})</span>`;
+              }
+            }
+            return h;
+          }, { className: "gtip", sticky: true, direction: "top", offset: [0, -6] });
+        }
+      }).addTo(map);
+      onTheme(() => layer.setStyle(styleOf));
+      const labels = [
+        [44.7390, 20.4844, "Баница — Степин луг", "Banjica — Stepin lug"], [44.7835, 20.3795, "Ада Циганлия", "Ada Ciganlija"],
+        [44.7745, 20.4300, "Кошутняк", "Košutnjak"], [44.7300, 20.3930, "Беле Воде", "Bele Vode"],
+        [44.8046, 20.5086, "Звездарская шума", "Zvezdara forest"], [44.8224, 20.4522, "Калемегдан", "Kalemegdan"],
+        [44.8317, 20.4343, "Велико ратно острво", "Great War Island"], [44.7640, 20.4969, "Центр. кладбище", "Central Cemetery"]];
+      labels.forEach(([la, lo, ru, en]) => L.marker([la, lo], { interactive: false, keyboard: false,
+        icon: L.divIcon({ className: "", html: `<span class="maplabel" data-ru="${ru}" data-en="${en}">${T(ru, en)}</span>`, iconSize: null }) }).addTo(map));
+      window.addEventListener("bg-lang", () => document.querySelectorAll(".maplabel").forEach(s => { s.textContent = s.dataset[BG.lang]; }));
+      crossings.forEach(c => {
+        const mk = L.marker([c.lat, c.lon], { icon: L.divIcon({ className: "", html: '<div class="diamond-ic"></div>', iconSize: [12, 12] }) })
+          .bindTooltip(() => c.kind === "link"
+            ? `<b>${T(c.ru, c.en)}</b><br>${T("Самое дорогое ребро графа: без этой связи EC города упадёт примерно на", "The costliest link in the graph: without it the city's EC drops by about")} ${fmt(c.ec_drop_pct)}% (${T("около", "roughly")} ${fmt(Math.round(c.ec_drop_ha / 100) * 100)} ${T("га", "ha")})`
+            : `<b>${T(c.ru, c.en)}</b><br>${T("Самый узкий разрыв: через одну клетку 10 м идёт", "The narrowest gap: one 10 m cell carries")} ${fmt(100 * c.peak)}% ${T("всего потока", "of the whole flow")}`,
+            { className: "gtip", direction: "top", offset: [0, -8] }).addTo(map);
+        const nameIt = () => { const e = mk.getElement(); if (e) e.setAttribute("aria-label", T(c.ru, c.en)); };
+        nameIt(); window.addEventListener("bg-lang", nameIt);
+      });
+    }))
+    .catch(() => mapError("map-net"));
+
+  /* EC chart */
+  getJSON(DATA + "ec_curve.json").then(rows => {
+    const el = document.getElementById("ec-chart");
+    const series = () => [["city", "city_strict", "city_permeable", "--accent", T("город", "city proper")],
+                          ["main", "strict", "permeable", "--blue", T("10 городских общин", "10 urban municipalities")]];
+    function draw() {
+      const S = series();
+      const W = Math.max(340, Math.min(720, el.clientWidth || 640)), H = W < 500 ? 300 : 340, m = { l: 40, r: 12, t: 16, b: 46 };
+      const lx = d => m.l + (W - m.l - m.r) * (Math.log10(d) - Math.log10(50)) / (Math.log10(30000) - Math.log10(50));
+      const ly = v => m.t + (H - m.t - m.b) * (1 - v);
+      let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${T("Доля леса, работающая как одно целое, в зависимости от дистанции расселения", "Share of forest working as one, by dispersal distance")}">`;
+      [0, 0.25, 0.5, 0.75, 1].forEach(v => {
+        s += `<line x1="${m.l}" x2="${W - m.r}" y1="${ly(v)}" y2="${ly(v)}" stroke="${css("--rule")}" stroke-width="1"/>`;
+        s += `<text x="${m.l - 8}" y="${ly(v) + 4}" font-size="11" text-anchor="end">${fmt(v * 100)}%</text>`; });
+      [100, 300, 1000, 3000, 10000, 30000].forEach(d => {
+        const lab = d >= 1000 ? `${d / 1000} ${T("км", "km")}` : `${d} ${T("м", "m")}`;
+        s += `<text x="${lx(d)}" y="${H - m.b + 18}" font-size="11" text-anchor="middle">${lab}</text>`; });
+      s += `<text x="${(m.l + W - m.r) / 2}" y="${H - 8}" font-size="11.5" text-anchor="middle">${T("медианная дистанция расселения вида (по лесу)", "median dispersal distance (through forest)")}</text>`;
+      S.forEach(([run, lo, hi, col]) => {
+        const a = rows.filter(r => r.run === run).sort((p, q) => p.d50 - q.d50);
+        const l = rows.filter(r => r.run === lo).sort((p, q) => p.d50 - q.d50), h = rows.filter(r => r.run === hi).sort((p, q) => p.d50 - q.d50);
+        const band = h.map(r => `${lx(r.d50)},${ly(r.ec_share)}`).concat(l.slice().reverse().map(r => `${lx(r.d50)},${ly(r.ec_share)}`));
+        s += `<polygon points="${band.join(" ")}" fill="${css(col)}" fill-opacity="0.12"/>`;
+        s += `<polyline points="${a.map(r => `${lx(r.d50)},${ly(r.ec_share)}`).join(" ")}" fill="none" stroke="${css(col)}" stroke-width="2" stroke-linejoin="round"/>`;
+        s += `<line x1="${m.l}" x2="${W - m.r}" y1="${ly(a[0].ec0_share)}" y2="${ly(a[0].ec0_share)}" stroke="${css(col)}" stroke-opacity="0.45" stroke-width="1"/>`;
+      });
+      s += S.map(([run, , , col, name]) => {
+        const p = rows.find(r => r.run === run && r.d50 === 1000);
+        return `<circle cx="${lx(1000)}" cy="${ly(p.ec_share)}" r="4.5" fill="${css(col)}" stroke="${css("--bg")}" stroke-width="2"/>` +
+          `<text x="${lx(1000) + (run === "city" ? 10 : -10)}" y="${ly(p.ec_share) + (run === "city" ? 16 : -10)}" font-size="12" text-anchor="${run === "city" ? "start" : "end"}" fill="${css("--fg")}">${name}: ${fmt(100 * p.ec_share)}%</text>`;
+      }).join("");
+      s += `<text x="${m.l + 6}" y="${ly(rows.find(r => r.run === "city").ec0_share) + 15}" font-size="11">${T("если бы связей не было", "if patches were not linked")}</text>`;
+      s += `<line id="ec-x" x1="0" x2="0" y1="${m.t}" y2="${H - m.b}" stroke="${css("--muted")}" stroke-width="1" visibility="hidden"/>`;
+      s += `<rect id="ec-hit" x="${m.l}" y="${m.t}" width="${W - m.l - m.r}" height="${H - m.t - m.b}" fill="transparent"/></svg>`;
+      el.innerHTML = s;
+      const svg = el.querySelector("svg"), hit = el.querySelector("#ec-hit"), xl = el.querySelector("#ec-x");
+      const ds = [...new Set(rows.map(r => r.d50))].sort((p, q) => p - q);
+      hit.addEventListener("pointermove", ev => {
+        const pt = svg.createSVGPoint(); pt.x = ev.clientX; pt.y = ev.clientY;
+        const loc = pt.matrixTransform(svg.getScreenCTM().inverse());
+        const d = ds.reduce((best, v) => Math.abs(lx(v) - loc.x) < Math.abs(lx(best) - loc.x) ? v : best, ds[0]);
+        xl.setAttribute("x1", lx(d)); xl.setAttribute("x2", lx(d)); xl.setAttribute("visibility", "visible");
+        const line = ([run, , , , name]) => { const p = rows.find(r => r.run === run && r.d50 === d);
+          return `${name}: <b>${fmt(100 * p.ec_share)}%</b> (${fmt(p.ec_ha)} ${T("га", "ha")})`; };
+        showTip(`${d >= 1000 ? fmt(d / 1000, d % 1000 ? 1 : 0) + " " + T("км", "km") : d + " " + T("м", "m")}<br>${S.map(line).join("<br>")}`, ev.clientX, ev.clientY);
+      });
+      hit.addEventListener("pointerleave", () => { xl.setAttribute("visibility", "hidden"); hideTip(); });
+    }
+    draw(); onTheme(draw); window.addEventListener("resize", draw);
+  }).catch(() => loadError("ec-chart"));
+})();
+</script>
+
+</body>
+</html>

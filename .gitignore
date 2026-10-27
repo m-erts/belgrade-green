@@ -1,0 +1,18 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+.DS_Store
+
+# Downloaded and intermediate data are rebuilt by the scripts.
+/data/
+
+# Drafts of posts stay on the author's computer until they are published.
+content/
+
+# Diagnostic plots
+reports/figures/_*.png
+site/dist/
+site/previews.json
+.claude/
